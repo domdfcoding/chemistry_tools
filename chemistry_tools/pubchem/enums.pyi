@@ -23,7 +23,7 @@
 # stdlib
 from typing import Any
 
-# this package
+# 3rd party
 from enum_tools import IntEnum, StrEnum
 
 
