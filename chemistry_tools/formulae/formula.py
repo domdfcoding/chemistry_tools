@@ -504,7 +504,7 @@ class Formula(defaultdict, Counter):
 			if not elements_with_isotopes or (element_name in elements_with_isotopes):
 				# Take the two most abundant isotopes.
 				first_iso, second_iso = sorted(
-					[(i[0], i[1][1]) for i in isotope_data[element_name].items() if i[0]],
+					((i[0], i[1][1]) for i in isotope_data[element_name].items() if i[0]),
 					key=lambda x: -x[1]
 					)[:2]
 
