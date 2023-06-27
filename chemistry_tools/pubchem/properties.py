@@ -47,12 +47,10 @@ Functions and classes to access properties of compounds in the PubChem database.
 
 # stdlib
 import warnings
-from textwrap import dedent
 from typing import Any, Callable, Dict, Iterable, List, NamedTuple, Sequence, Union
 
 # 3rd party
 from pandas import DataFrame  # type: ignore
-from tabulate import tabulate  # nodep
 
 # this package
 from chemistry_tools.formulae import Formula
