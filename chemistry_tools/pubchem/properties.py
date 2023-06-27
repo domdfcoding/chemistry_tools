@@ -71,7 +71,6 @@ __all__ = [
 		"get_property",
 		"parse_properties",
 		"PubChemProperty",
-		"string_list",
 		]
 
 
