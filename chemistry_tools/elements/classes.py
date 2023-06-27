@@ -56,7 +56,6 @@ Provides classes to model period table elements.
 
 # stdlib
 import functools
-from functools import lru_cache
 from typing import Dict, Iterable, Iterator, List, Optional, Tuple, Union, overload
 
 # 3rd party
@@ -695,7 +694,7 @@ class Elements(Iterable[Element]):
 			except (ValueError, KeyError):
 				raise KeyError(f"Unknown key: '{key}'")
 
-	@lru_cache()
+	@functools.lru_cache()
 	def split_isotope(self, string: str) -> Tuple[str, int]:
 		"""
 		Returns the symbol and mass number for the isotope represented by ``string``.
