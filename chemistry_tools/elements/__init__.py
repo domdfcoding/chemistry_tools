@@ -122,13 +122,13 @@ Examples
 
 # this package
 from ._elements import ELEMENTS, D, H, T
-from ._isotope_data import isotope_data  # , undefined_isotopes
+from ._isotope_data import isotope_data  # , undefined_isotopes  # noqa: F401
 from ._table import BLOCKS, GROUPS, PERIODS, SERIES
 from .actinides import Ac, Am, Bk, Cf, Cm, Es, Fm, Lr, Md, No, Np, Pa, Pu, Th, U
 from .alkali_metals import Cs, Fr, K, Li, Na, Rb
 from .alkaline_earth_metals import Ba, Be, Ca, Mg, Ra, Sr
 from .chalcogens import Lv, O, Po, S, Se, Te
-from .classes import Element, Elements, Isotope
+from .classes import Element, Elements, Isotope  # noqa: F401
 from .halogens import At, Br, Cl, F, I, Ts
 from .lanthanides import Ce, Dy, Er, Eu, Gd, Ho, La, Lu, Nd, Pm, Pr, Sm, Tb, Tm, Yb
 from .noble_gases import Ar, He, Kr, Ne, Og, Rn, Xe

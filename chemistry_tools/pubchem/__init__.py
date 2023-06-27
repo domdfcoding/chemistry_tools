@@ -1,7 +1,7 @@
 #  !/usr/bin/env python
 #
 #  __init__.py
-"""
+r"""
 This module provides a wrapper around the PubChem PUG_REST API.
 
 Data for compounds can be accessed using the
@@ -11,7 +11,7 @@ Data for compounds can be accessed using the
 
 The following table lists the various properties that can be obtained from the PubChem API:
 
-.. tabularcolumns:: |l|>{\\raggedright\\arraybackslash}p{10cm}|
+.. tabularcolumns:: |l|>{\raggedright\arraybackslash}p{10cm}|
 
 .. collapse:: Click to expand
 
