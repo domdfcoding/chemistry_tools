@@ -95,3 +95,5 @@ sphinx_conf_epilogue:
  - nitpicky = True
  - ignore_missing_xrefs = ["^quantities\.quantity\.Quantity$", "^quantities\.unitquantity\.UnitQuantity$", "^cawdrey\.", "^tabulate\.", "^FrozenOrderedDict$", "^PIL.Image.Image$",]
  - needspace_amount = r"3\baselineskip"
+
+standalone_contrib_guide: true

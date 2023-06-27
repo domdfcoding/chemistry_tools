@@ -11,6 +11,8 @@ Data for compounds can be accessed using the
 
 The following table lists the various properties that can be obtained from the PubChem API:
 
+.. tabularcolumns:: |l|>{\\raggedright\\arraybackslash}p{10cm}|
+
 .. collapse:: Click to expand
 
 	.. properties-table::

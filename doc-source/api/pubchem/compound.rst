@@ -5,8 +5,14 @@
 .. only:: html
 
 	.. extras-require:: pubchem
-		:file: pubchem/requirements.txt
+		:scope: package
 
-.. autosummary-widths:: 4/10
+		cawdrey>=0.1.7
+		mathematical>=0.1.13
+		pillow>=7.0.0
+		pyparsing>=2.4.6
+		tabulate>=0.8.9
+
+.. autosummary-widths:: 38/100
 .. automodule:: chemistry_tools.pubchem.compound
 .. latex:clearpage::

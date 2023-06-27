@@ -76,7 +76,7 @@ C = TypeVar('C', bound="Compound")
 @prettify_docstrings
 class Compound(Dictable):
 	"""
-	Corresponds to a single record from the PubChem Compound database.
+	Represents a single record from the PubChem Compound database.
 
 	The PubChem Compound database is constructed from the Substance database
 	using a standardization and deduplication process.
@@ -85,8 +85,6 @@ class Compound(Dictable):
 	:param title: The title of the compound record (usually the name of the compound)
 	:param CID:
 	:param description:
-
-	.. latex:vspace:: 60px
 	"""
 
 	def __init__(self, title: str, CID: int, description, **_):
@@ -519,7 +517,7 @@ class Compound(Dictable):
 # TODO:
 def compounds_to_frame(compounds: Union[Compound, List[Compound]]) -> DataFrame:
 	"""
-	Construct a :class:`pandas.DataFrame` from a list of
+	Construct a :class:`~.pandas.DataFrame` from a list of
 	:class:`~chemistry_tools.pubchem.compound.Compound` objects.
 
 	:param compounds:

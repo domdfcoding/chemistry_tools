@@ -7,7 +7,7 @@ Properties of the chemical elements.
 Each chemical element is represented as an object instance. Physicochemical
 and descriptive properties of the elements are stored as instance attributes.
 
-Originally created by Christoph Gohlke <https://www.lfd.uci.edu/~gohlke/>`_
+Originally created by `Christoph Gohlke <https://www.lfd.uci.edu/~gohlke/>`_.
 Licensed under the BSD 3-Clause license
 
 

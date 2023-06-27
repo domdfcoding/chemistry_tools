@@ -351,7 +351,7 @@ def mass_from_composition(composition: Mapping[Union[str, int], int], charge: in
 		>>> f'{mass_from_composition({0: -1, "H": 1, 8: 1}):.2f}'
 		'17.01'
 
-	:param composition: Dictionary mapping :class:`str` or :class:`int` (element symbol or atomic number) to int (coefficient)
+	:param composition: Mapping of :class:`str` or :class:`int` (element symbol or atomic number) to int (coefficient)
 	:param charge: The charge of the composition.
 	"""
 
