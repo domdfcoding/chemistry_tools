@@ -29,8 +29,8 @@ Chemistry Tools
 	* - Other
 	  - |license| |language| |requires|
 
-.. |docs| image:: https://img.shields.io/readthedocs/chemistry_tools/latest?logo=read-the-docs
-	:target: https://chemistry_tools.readthedocs.io/en/latest
+.. |docs| image:: https://img.shields.io/readthedocs/chemistry-tools/latest?logo=read-the-docs
+	:target: https://chemistry-tools.readthedocs.io/en/latest
 	:alt: Documentation Build Status
 
 .. |docs_check| image:: https://github.com/domdfcoding/chemistry_tools/workflows/Docs%20Check/badge.svg
@@ -108,7 +108,7 @@ Chemistry Tools
 	:target: https://github.com/domdfcoding/chemistry_tools/commit/master
 	:alt: GitHub last commit
 
-.. |maintained| image:: https://img.shields.io/maintenance/yes/2022
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2023
 	:alt: Maintenance
 
 .. |pypi-downloads| image:: https://img.shields.io/pypi/dm/chemistry_tools

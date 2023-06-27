@@ -32,7 +32,7 @@ Chemistry Tools
 		  - |license| |language| |requires|
 
 	.. |docs| rtfd-shield::
-		:project: chemistry_tools
+		:project: chemistry-tools
 		:alt: Documentation Build Status
 
 	.. |docs_check| actions-shield::
@@ -113,7 +113,7 @@ Chemistry Tools
 		:last-commit:
 		:alt: GitHub last commit
 
-	.. |maintained| maintained-shield:: 2022
+	.. |maintained| maintained-shield:: 2023
 		:alt: Maintenance
 
 	.. |pypi-downloads| pypi-shield::
