@@ -22,7 +22,7 @@ file = "LICENSE"
 Homepage = "https://github.com/domdfcoding/chemistry_tools"
 "Issue Tracker" = "https://github.com/domdfcoding/chemistry_tools/issues"
 "Source Code" = "https://github.com/domdfcoding/chemistry_tools"
-Documentation = "https://chemistry_tools.readthedocs.io/en/latest"
+Documentation = "https://chemistry-tools.readthedocs.io/en/latest"
 
 [project.optional-dependencies]
 pubchem = [
