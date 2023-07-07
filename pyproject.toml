@@ -25,43 +25,18 @@ Homepage = "https://github.com/domdfcoding/chemistry_tools"
 Documentation = "https://chemistry-tools.readthedocs.io/en/latest"
 
 [project.optional-dependencies]
-pubchem = [
-    "cawdrey>=0.1.7",
-    "mathematical>=0.1.13",
-    'pillow>=7.0.0; platform_python_implementation == "PyPy" and python_version >= "3.8" and platform_system == "Windows"',
-    'pillow>=7.0.0; platform_python_implementation == "PyPy" and python_version >= "3.7" and platform_system != "Windows"',
-    'pillow>=7.0.0; platform_python_implementation != "PyPy"',
-    'pillow<9.0.0,>=7.0.0; platform_python_implementation == "PyPy" and python_version == "3.7" and platform_system == "Windows"',
-    'pillow<8.0.0,>=7.0.0; platform_python_implementation == "PyPy" and python_version == "3.6"',
-    "pyparsing>=2.4.6",
-    "tabulate>=0.8.9",
-]
-formulae = [
-    "cawdrey>=0.1.7",
-    "mathematical>=0.1.13",
-    "pyparsing>=2.4.6",
-    "tabulate>=0.8.9",
-    "typing-extensions>=4.1.1",
-]
-plotting = [
-    'matplotlib>=3.0.0; platform_machine != "aarch64" or python_version > "3.6"',
-    'matplotlib<=3.2.2; platform_machine == "aarch64" and python_version == "3.6"',
-]
+pubchem = [ "cawdrey>=0.1.7", "mathematical>=0.1.13", "pillow>=9.0.0", "pyparsing>=2.4.6", "tabulate>=0.8.9",]
+formulae = [ "cawdrey>=0.5.0", "mathematical>=0.5.1", "pyparsing>=2.4.6", "tabulate>=0.8.9",]
+plotting = [ "matplotlib>=3.6.0",]
 toxnet = [ "beautifulsoup4>=4.7.0",]
 all = [
     "beautifulsoup4>=4.7.0",
-    "cawdrey>=0.1.7",
-    "mathematical>=0.1.13",
-    'matplotlib>=3.0.0; platform_machine != "aarch64" or python_version > "3.6"',
-    'matplotlib<=3.2.2; platform_machine == "aarch64" and python_version == "3.6"',
-    'pillow>=7.0.0; platform_python_implementation == "PyPy" and python_version >= "3.8" and platform_system == "Windows"',
-    'pillow>=7.0.0; platform_python_implementation == "PyPy" and python_version >= "3.7" and platform_system != "Windows"',
-    'pillow>=7.0.0; platform_python_implementation != "PyPy"',
-    'pillow<9.0.0,>=7.0.0; platform_python_implementation == "PyPy" and python_version == "3.7" and platform_system == "Windows"',
-    'pillow<8.0.0,>=7.0.0; platform_python_implementation == "PyPy" and python_version == "3.6"',
+    "cawdrey>=0.5.0",
+    "mathematical>=0.5.1",
+    "matplotlib>=3.6.0",
+    "pillow>=9.0.0",
     "pyparsing>=2.4.6",
     "tabulate>=0.8.9",
-    "typing-extensions>=4.1.1",
 ]
 
 [tool.mkrecipe]
@@ -81,7 +56,7 @@ base-classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Typing :: Typed",
 ]
-python-versions = [ "3.6", "3.7", "3.8", "3.9", "3.10",]
+python-versions = [ "3.8", "3.9", "3.10", "3.11",]
 python-implementations = [ "CPython", "PyPy",]
 platforms = [ "Windows", "macOS", "Linux",]
 license-key = "LGPL-3.0-or-later"
@@ -172,7 +147,7 @@ autodoc_exclude_members = [
 ]
 
 [tool.mypy]
-python_version = "3.7"
+python_version = "3.8"
 namespace_packages = true
 check_untyped_defs = true
 warn_unused_ignores = true
