@@ -93,7 +93,7 @@ def rest_get_description(
 		identifier: Union[str, int, Sequence[Union[str, int]]],
 		namespace: Union[PubChemNamespace, str] = PubChemNamespace.name,
 		**kwargs,
-		):
+		) -> Dict[str, Any]:
 	"""
 	Obtains the description for the given compound from the PubChem REST API.
 

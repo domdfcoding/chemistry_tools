@@ -15,7 +15,8 @@ from chemistry_tools.pubchem.errors import BadRequestError, NotFoundError
 from chemistry_tools.pubchem.lookup import get_compounds
 
 
-def test_invalid_identifier(pubchem_cassette):
+@pytest.mark.usefixtures("pubchem_cassette")
+def test_invalid_identifier():
 	"""
 	BadRequestError should be raised if identifier is not a positive integer.
 	"""
@@ -26,7 +27,8 @@ def test_invalid_identifier(pubchem_cassette):
 		get_compounds("srthrthsr")
 
 
-def test_notfound_identifier(pubchem_cassette):
+@pytest.mark.usefixtures("pubchem_cassette")
+def test_notfound_identifier():
 	"""
 	NotFoundError should be raised if identifier is a positive integer but record doesn't exist.
 	"""

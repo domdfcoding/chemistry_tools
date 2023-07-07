@@ -6,7 +6,7 @@ from chemistry_tools.pubchem.compound import Compound
 
 
 @pytest.fixture(scope="module")
-def c1():
+def c1() -> Compound:
 	"""
 	Compound CID 241.
 	"""
@@ -15,7 +15,7 @@ def c1():
 
 
 @pytest.fixture(scope="module")
-def c2():
+def c2() -> Compound:
 	"""
 	Compound CID 175.
 	"""
@@ -23,7 +23,7 @@ def c2():
 	return Compound.from_cid(175)
 
 
-def test_properties_types(c1):
+def test_properties_types(c1: Compound):
 	# assert isinstance(c1.boiling_point, Decimal)
 	# TODO: Boiling point now returns string
 	# TODO:	assert c1.boiling_point == '80.11111111111111111111111112°C at 760 mm Hg (NTP, 1992)'
@@ -50,7 +50,7 @@ def test_properties_types(c1):
 	pass
 
 
-def test_values(c1):
+def test_values(c1: Compound):
 	# TODO: Now seems to return formatted string
 	# assert c1.boiling_point == Decimal('80.08')
 	# TODO:assert c1.boiling_point == "80.11111111111111111111111112°C at 760 mm Hg (NTP, 1992)"
@@ -76,7 +76,7 @@ def test_values(c1):
 	pass
 
 
-def test_get_property(c1):
+def test_get_property(c1: Compound):
 	assert isinstance(c1.get_property("Melting Point"), dict)
 	# TODO: Record for Benzene now seems to return a string with markup, not a number
 	# assert isinstance(c1.get_property_value("Melting Point"), Decimal)

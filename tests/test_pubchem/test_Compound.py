@@ -22,7 +22,7 @@ from chemistry_tools.pubchem.lookup import get_compounds
 
 
 @pytest.fixture(scope="module")
-def c1():
+def c1() -> Compound:
 	"""
 	Compound CID 241.
 	"""
@@ -31,7 +31,7 @@ def c1():
 
 
 @pytest.fixture(scope="module")
-def c2():
+def c2() -> Compound:
 	"""
 	Compound CID 175.
 	"""
@@ -39,7 +39,7 @@ def c2():
 	return Compound.from_cid(175)
 
 
-def test_basic(c1):
+def test_basic(c1: Compound):
 	"""
 	Test Compound can be retrieved and has a record with the correct CID.
 	"""
@@ -48,14 +48,15 @@ def test_basic(c1):
 	assert repr(c1) == "Compound(241)"
 
 
-def test_atoms(c1):
+def test_atoms(c1: Compound):
 	assert len(c1.atoms) == 12
 	print([a.element for a in c1.atoms])
 	assert {a.element for a in c1.atoms} == {'C', 'H'}
 	assert set(c1.elements) == {'C', 'H'}
 
 
-def test_single_atom(pubchem_cassette):
+@pytest.mark.usefixtures("pubchem_cassette")
+def test_single_atom():
 	"""
 	Test Compound when there is a single atom and no bonds.
 	"""
@@ -65,23 +66,23 @@ def test_single_atom(pubchem_cassette):
 	assert c.bonds == []
 
 
-def test_bonds(c1):
+def test_bonds(c1: Compound):
 	assert len(c1.bonds) == 12
 	assert {int(b.order) for b in c1.bonds} == {int(BondType.SINGLE), int(BondType.DOUBLE)}
 
 
-def test_charge(c1):
+def test_charge(c1: Compound):
 	assert c1.get_property("Charge") == 0
 
 
-def test_coordinates(c1):
+def test_coordinates(c1: Compound):
 	for a in c1.atoms:
 		assert isinstance(a.x, (float, int))
 		assert isinstance(a.y, (float, int))
 		assert a.z is None
 
 
-def test_identifiers(c1):
+def test_identifiers(c1: Compound):
 	# precache properties
 	c1.precache()
 
@@ -96,7 +97,7 @@ def test_identifiers(c1):
 	assert c1.molecular_formula.hill_formula == "C6H6"
 
 
-def test_properties_types(c1):
+def test_properties_types(c1: Compound):
 	# precache properties
 	c1.precache()
 
@@ -130,7 +131,7 @@ def test_properties_types(c1):
 	assert isinstance(c1.canonicalized, bool)  # TODO
 
 
-def test_properties_values(c1):
+def test_properties_values(c1: Compound):
 	# precache properties
 	c1.precache()
 
@@ -160,21 +161,22 @@ def test_properties_values(c1):
 	assert c1.canonicalized is True
 
 
-def test_coordinate_type(c1):
+def test_coordinate_type(c1: Compound):
 	assert c1.coordinate_type == "2d"
 
 
-def test_compound_equality(pubchem_cassette):
+@pytest.mark.usefixtures("pubchem_cassette")
+def test_compound_equality():
 	assert Compound.from_cid(241) == Compound.from_cid(241)
 	assert get_compounds("Benzene", "name")[0], get_compounds("c1ccccc1" == "smiles")[0]
 
 
-def test_synonyms(c1):
+def test_synonyms(c1: Compound):
 	assert len(c1.synonyms) > 5
 	assert len(c1.synonyms) > 5
 
 
-def test_compound_dict(c1):
+def test_compound_dict(c1: Compound):
 	assert dict(c1)
 	assert isinstance(dict(c1), dict)
 	assert "atoms" in dict(c1)
@@ -182,12 +184,12 @@ def test_compound_dict(c1):
 	assert dict(c1)["atoms"][1].element
 
 
-def test_charged_compound(c2):
+def test_charged_compound(c2: Compound):
 	assert len(c2.atoms) == 7
 	assert c2.atoms[0].charge == -1
 
 
-def test_fingerprint(c1):
+def test_fingerprint(c1: Compound):
 	# CACTVS fingerprint is 881 bits
 	assert len(c1.cactvs_fingerprint) == 881
 	# Raw fingerprint has 4 byte prefix, 7 bit suffix, and is hex encoded (/4) = 230

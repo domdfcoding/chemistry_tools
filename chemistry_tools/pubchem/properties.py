@@ -314,7 +314,7 @@ def rest_get_properties_json(
 		namespace=PubChemNamespace.name,
 		properties: Union[Sequence[str], str] = '',
 		**kwargs
-		) -> Dict:
+		) -> Dict[str, Any]:
 	"""
 	Returns the properties for the compound with the given identifier as a dictionary.
 
@@ -347,7 +347,7 @@ def rest_get_properties(
 		namespace=PubChemNamespace.name,
 		properties: Union[Sequence[str], str] = '',
 		format_: Union[PubChemFormats, str] = PubChemFormats.CSV,
-		):
+		) -> str:
 	r"""
 	Returns the properties for the compound with the given identifier in the desired format.
 

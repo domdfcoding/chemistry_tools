@@ -93,7 +93,7 @@ from chemistry_tools.elements import ELEMENTS, H, Isotope, groups
 				(238, 'U'),
 				]
 		)
-def test_isotopes(symbol, massnumber):
+def test_isotopes(symbol: str, massnumber: int):
 	element = ELEMENTS[symbol]
 
 	max_abundance_massnumber = 0

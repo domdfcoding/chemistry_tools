@@ -37,7 +37,7 @@ from .property_format import *
 __all__ = ["toxnet"]
 
 
-def toxnet(cas: str):
+def toxnet(cas: str) -> Dict[str, Any]:
 	"""
 	Obtain physical properties for the compound with the given CAS number from the ToxNet database.
 

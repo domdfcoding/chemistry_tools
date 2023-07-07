@@ -14,7 +14,7 @@ from chemistry_tools.pubchem.compound import Compound
 
 
 @pytest.fixture()
-def c3d():
+def c3d() -> Compound:
 	"""
 	Compound CID 1234, 3D.
 	"""
@@ -22,17 +22,17 @@ def c3d():
 	return Compound.from_cid(1234, record_type="3d")
 
 
-def test_coordinate_type(c3d):
+def test_coordinate_type(c3d: Compound):
 	assert c3d.coordinate_type == "3d"
 
 
-def test_atoms(c3d):
+def test_atoms(c3d: Compound):
 	assert len(c3d.atoms) == 75
 	assert {a.element for a in c3d.atoms} == {'C', 'H', 'O', 'N'}
 	assert set(c3d.elements) == {'C', 'H', 'O', 'N'}
 
 
-def test_coordinates(c3d):
+def test_coordinates(c3d: Compound):
 	for a in c3d.atoms:
 		assert isinstance(a.x, (float, int))
 		assert isinstance(a.y, (float, int))

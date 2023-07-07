@@ -56,7 +56,7 @@ Provides classes to model period table elements.
 
 # stdlib
 import functools
-from typing import Dict, Iterable, Iterator, List, Optional, Tuple, Union, overload
+from typing import Any, Dict, Iterable, Iterator, List, Optional, Tuple, Union, overload
 
 # 3rd party
 from domdf_python_tools import doctools
@@ -642,7 +642,7 @@ class Elements(Iterable[Element]):
 		elements = f"Elements(\n    {elements},\n)"
 		return elements
 
-	def __contains__(self, item) -> bool:
+	def __contains__(self, item: Any) -> bool:
 		return item in self._dict
 
 	def __iter__(self) -> Iterator[Element]:
@@ -665,7 +665,7 @@ class Elements(Iterable[Element]):
 	@overload
 	def __getitem__(self, key: Union[str, int, float]) -> Element: ...
 
-	def __getitem__(self, key):
+	def __getitem__(self, key):  # noqa: MAN001
 		"""
 		Return ``self[key]``.
 

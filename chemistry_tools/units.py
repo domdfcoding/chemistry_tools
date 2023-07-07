@@ -81,7 +81,7 @@ __all__ = [
 		]
 
 
-def as_latex(quant: quantities.quantity.Quantity):
+def as_latex(quant: quantities.quantity.Quantity) -> str:
 	r"""
 	Returns the LaTeX reperesentation of the unit of a quantity.
 
@@ -181,7 +181,11 @@ def allclose(a, b, rtol=1e-8, atol=None) -> bool:
 
 
 # TODO: decide whether to deprecate in favor of "number_to_scientific_latex"?
-def format_string(value: quantities.quantity.Quantity, precision: str = "%.5g", tex: bool = False):
+def format_string(
+		value: quantities.quantity.Quantity,
+		precision: str = "%.5g",
+		tex: bool = False,
+		) -> str:
 	r"""
 	Formats a scalar with unit as two strings.
 
