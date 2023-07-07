@@ -8,7 +8,6 @@ Test downloading.
 
 # stdlib
 import csv
-import os
 
 # this package
 from chemistry_tools.pubchem.images import get_structure_image

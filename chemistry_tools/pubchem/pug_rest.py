@@ -53,7 +53,6 @@ from urllib.parse import quote
 import requests
 
 # this package
-from chemistry_tools import cached_requests
 from chemistry_tools.pubchem import API_BASE
 from chemistry_tools.pubchem.enums import PubChemFormats, PubChemNamespace
 from chemistry_tools.pubchem.errors import HTTP_ERROR_CODES, PubChemHTTPError
