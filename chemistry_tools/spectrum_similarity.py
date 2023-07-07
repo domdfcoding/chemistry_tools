@@ -50,13 +50,46 @@ Mass spectrum similarity calculations.
 #
 
 # stdlib
-from typing import Mapping, Optional, Sequence, Tuple, Union
+from typing import Mapping, Optional, Sequence, Tuple, Union, overload
 
 # 3rd party
 import numpy
 import pandas  # type: ignore
+from typing_extensions import Literal
 
 __all__ = ["spectrum_similarity", "normalize", "create_array"]
+
+
+@overload
+def spectrum_similarity(
+		spec_top: numpy.ndarray,
+		spec_bottom: numpy.ndarray,
+		t: float = ...,
+		b: float = ...,
+		top_label: Optional[str] = ...,
+		bottom_label: Optional[str] = ...,
+		xlim: Tuple[int, int] = ...,
+		x_threshold: float = ...,
+		print_alignment: bool = ...,
+		print_graphic: bool = ...,
+		output_list: Literal[True] = True,
+		) -> Tuple[float, float, pandas.DataFrame]: ...
+
+
+@overload
+def spectrum_similarity(
+		spec_top: numpy.ndarray,
+		spec_bottom: numpy.ndarray,
+		t: float,
+		b: float,
+		top_label: Optional[str],
+		bottom_label: Optional[str],
+		xlim: Tuple[int, int],
+		x_threshold: float,
+		print_alignment: bool,
+		print_graphic: bool,
+		output_list: Literal[False],
+		) -> Tuple[float, float]: ...
 
 
 def spectrum_similarity(
