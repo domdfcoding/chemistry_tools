@@ -183,7 +183,7 @@ show_error_codes = true
 directives = [ "code-block",]
 
 [tool.dep_checker]
-allowed_unused = [ "cachecontrol", "lockfile",]
+allowed_unused = [ "cachecontrol", "lockfile", "filelock",]
 
 [tool.dependency-dash."requirements.txt"]
 order = 10

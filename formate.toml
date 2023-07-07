@@ -43,6 +43,7 @@ known_third_party = [
     "domdf_python_tools",
     "enum_tools",
     "extras_require",
+    "filelock",
     "github",
     "importlib_metadata",
     "lockfile",
