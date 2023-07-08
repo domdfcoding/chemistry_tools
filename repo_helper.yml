@@ -8,7 +8,6 @@ username: "domdfcoding"
 license: 'LGPLv3+'
 short_desc: 'Python tools for analysis of chemical compounds.'
 
-python_deploy_version: 3.7
 tox_testenv_extras: all
 use_whey: true
 min_coverage: 74
@@ -22,15 +21,13 @@ additional_ignore:
 
 # Versions to run tests for
 python_versions:
- - 3.6
- - 3.7
  - 3.8
  - 3.9
  - "3.10"
- - 3.11-dev
- - pypy36
- - pypy37
+ - "3.11"
+ - 3.12-dev
  - pypy38
+ - pypy39
 
 # additional lines for MANIFEST.in
 manifest_additional:
@@ -52,8 +49,7 @@ extras_require:
   pubchem: "chemistry_tools/pubchem/requirements.txt"
   formulae: "chemistry_tools/formulae/requirements.txt"
   plotting:
-   - 'matplotlib>=3.0.0; platform_machine != "aarch64" or python_version > "3.6"'
-   - 'matplotlib<=3.2.2; platform_machine == "aarch64" and python_version == "3.6"'
+   - 'matplotlib>=3.6.0'
   toxnet:
    - "beautifulsoup4>=4.7.0"
 
