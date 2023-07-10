@@ -8,6 +8,7 @@ Test optional pandas functionality.
 
 # 3rd party
 import pandas  # type: ignore
+import pytest
 
 # this package
 from chemistry_tools.pubchem.compound import Compound, compounds_to_frame
@@ -28,7 +29,8 @@ from chemistry_tools.pubchem.properties import get_properties
 # 	assert 'exact_mass' in columns
 
 
-def test_properties_dataframe(pubchem_cassette):
+@pytest.mark.usefixtures("pubchem_cassette")
+def test_properties_dataframe():
 	df = get_properties("1,2,3,4", ["IsomericSMILES", "XLogP", "InChIKey"], "cid", as_dataframe=True)
 	assert df.ndim == 2  # type: ignore
 	assert df.index.names == ["CID"]  # type: ignore
@@ -36,11 +38,13 @@ def test_properties_dataframe(pubchem_cassette):
 	assert df.columns.values.tolist() == ["IsomericSMILES", "InChIKey", "XLogP"]  # type: ignore
 
 
-def test_compound_series(pubchem_cassette):
+@pytest.mark.usefixtures("pubchem_cassette")
+def test_compound_series():
 	s = Compound.from_cid(241).to_series()
 	assert isinstance(s, pandas.Series)
 
 
-def test_compound_to_frame(pubchem_cassette):
+@pytest.mark.usefixtures("pubchem_cassette")
+def test_compound_to_frame():
 	s = compounds_to_frame(Compound.from_cid(241))
 	assert isinstance(s, pandas.DataFrame)

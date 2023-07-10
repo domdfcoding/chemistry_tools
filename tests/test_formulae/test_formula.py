@@ -104,6 +104,7 @@
 # stdlib
 import decimal
 import re
+from typing import Any, Dict
 
 # 3rd party
 import pytest
@@ -213,8 +214,9 @@ def test_calculate_mass():
 	assert Formula.from_string("C12H13N+").get_mz() == Formula.from_string("C12H13N", charge=1).average_mass
 
 
-@pytest.mark.parametrize("charge", [1, 2, 3, 4])
-def test_calculate_mz(charge):
+# @pytest.mark.parametrize("charge", [1, 2, 3, 4])
+# def test_calculate_mz(charge):
+def test_calculate_mz():
 	# Calculate m/z of an ion.
 	assert Formula.from_string("C12H13N+").exact_mass == Formula.from_string("C12H13N", charge=1).exact_mass
 	# perhaps math.isclose()
@@ -280,27 +282,27 @@ def test_iter_isotopologues_with_abundances():
 
 
 @pytest.fixture(scope="module")
-def Br2():
+def Br2() -> Formula:
 	return Formula.from_string("Br2")
 
 
 @pytest.fixture(scope="module")
-def C6Br6():
+def C6Br6() -> Formula:
 	return Formula.from_string("C6Br6")
 
 
-def test___str__(Br2, C6Br6):
+def test___str__(Br2: Formula, C6Br6: Formula):
 	assert str(Br2) == "Br2"
 	assert str(C6Br6) == "C6Br6"
 
 
-def test___repr__(Br2, C6Br6):
+def test___repr__(Br2: Formula, C6Br6: Formula):
 	assert repr(Br2) == "Formula({'Br': 2})"
 	assert repr(C6Br6) == "Formula({'C': 6, 'Br': 6})"
 
 
 @pytest.mark.parametrize("other", ["Br2", "abc", 123, 12, 34, [1, 2, 3]])
-def test_unsupported_equals(Br2, other):
+def test_unsupported_equals(Br2: Formula, other: Any):
 	assert Br2 != other
 
 
@@ -374,7 +376,7 @@ def test_properties():
 				("CuSO4.5H2O", "249.68485", "248.93415"),
 				]
 		)
-def test_masses(formula, mass, exact_mass):
+def test_masses(formula: str, mass: str, exact_mass: str):
 	f = Formula.from_string(formula)
 	print(f)
 	assert rounders(f.mass, "0.00000") == decimal.Decimal(mass)
@@ -398,7 +400,7 @@ def test_masses(formula, mass, exact_mass):
 				("NH3.BF3", "BF3H3N"),
 				]
 		)
-def test_equivalent(formula_1, formula_2):
+def test_equivalent(formula_1: str, formula_2: str):
 	f1 = Formula.from_string(formula_1)
 	f2 = Formula.from_string(formula_2)
 	assert f1 == f2
@@ -415,7 +417,7 @@ def test_equivalent(formula_1, formula_2):
 				("C6H12O6", "CH2O"),
 				]
 		)
-def test_empirical_formula(formula_1, formula_2):
+def test_empirical_formula(formula_1: str, formula_2: str):
 	f1 = Formula.from_string(formula_1)
 	f2 = Formula.from_string(formula_2)
 	assert f1.empirical_formula == f2.empirical_formula
@@ -468,5 +470,5 @@ def test_invalid_formulae_unknown_element(formula):
 				# TODO: ("MDRGEQGLLK", {}),
 				]
 		)
-def test_parsing(formula, data):
+def test_parsing(formula: str, data: Dict[str, int]):
 	assert Formula.from_string(formula) == data

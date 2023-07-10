@@ -49,7 +49,7 @@ Functions for handling SI units.
 #
 
 # stdlib
-from typing import Union
+from typing import Tuple, Union
 
 # 3rd party
 import numpy
@@ -181,7 +181,11 @@ def allclose(a, b, rtol=1e-8, atol=None) -> bool:
 
 
 # TODO: decide whether to deprecate in favor of "number_to_scientific_latex"?
-def format_string(value: quantities.quantity.Quantity, precision: str = "%.5g", tex: bool = False):
+def format_string(
+		value: quantities.quantity.Quantity,
+		precision: str = "%.5g",
+		tex: bool = False,
+		) -> Tuple[str, str]:
 	r"""
 	Formats a scalar with unit as two strings.
 

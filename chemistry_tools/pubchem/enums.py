@@ -48,7 +48,7 @@ class PubChemNamespace(StrEnum):
 
 	# TODO: listkey for formula lookup https://pubchemdocs.ncbi.nlm.nih.gov/pug-rest$_Toc494865583
 
-	def __new__(cls, value, doc):  # noqa: D102
+	def __new__(cls, value: str, doc: str):  # noqa: D102
 		obj = str.__new__(cls, value)  # noqa
 		obj._value_ = value
 		obj.__doc__ = doc

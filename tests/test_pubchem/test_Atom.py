@@ -14,11 +14,11 @@ from chemistry_tools.pubchem.atom import Atom
 
 
 @pytest.fixture(scope="module")
-def a1():
+def a1() -> Atom:
 	return Atom(1234, 6, 7, 8, charge=-1)
 
 
-def test_atom(a1):
+def test_atom(a1: Atom):
 	assert a1.__repr__() == "Atom(1234, C)"
 	assert a1.element == 'C'
 	assert isinstance(a1.element, str)
@@ -30,7 +30,7 @@ def test_atom(a1):
 	assert a1.z is None
 
 
-def test_coordinates(a1):
+def test_coordinates(a1: Atom):
 	a1.set_coordinates(7, 8, 9)
 	assert a1.coordinate_type == "3d"
 

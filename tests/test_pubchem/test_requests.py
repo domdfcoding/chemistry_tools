@@ -6,11 +6,15 @@ Test basic requests.
 
 """
 
+# 3rd party
+import pytest
+
 # this package
 from chemistry_tools.pubchem.pug_rest import do_rest_get
 
 
-def test_requests(pubchem_cassette):
+@pytest.mark.usefixtures("pubchem_cassette")
+def test_requests():
 	"""
 	Test a variety of basic raw requests and ensure they don't return an error code.
 	"""
@@ -40,7 +44,8 @@ def test_requests_no_cassette():
 			).status_code == 200
 
 
-def test_content_type(pubchem_cassette):
+@pytest.mark.usefixtures("pubchem_cassette")
+def test_content_type():
 	"""
 	Test content type header matches desired output format.
 	"""

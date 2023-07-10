@@ -639,7 +639,7 @@ class Formula(defaultdict, Counter):
 		# override default behavior: we don't want to add 0's to the dictionary
 		return 0
 
-	def __setitem__(self, key, value):
+	def __setitem__(self, key, value) -> None:
 		if isinstance(value, float):
 			value = int(round(value))
 		elif not isinstance(value, int):
@@ -655,7 +655,7 @@ class Formula(defaultdict, Counter):
 			result[elem] += count
 		return result
 
-	def __iadd__(self, other):
+	def __iadd__(self, other) -> "Formula":
 		for elem, count in other.items():
 			self[elem] += count
 		return self
@@ -669,7 +669,7 @@ class Formula(defaultdict, Counter):
 			result[elem] -= count
 		return result
 
-	def __isub__(self, other):
+	def __isub__(self, other) -> "Formula":
 		for elem, count in other.items():
 			self[elem] -= count
 		return self
@@ -677,12 +677,12 @@ class Formula(defaultdict, Counter):
 	def __rsub__(self, other):
 		return (self - other) * (-1)
 
-	def __mul__(self, other):
+	def __mul__(self, other) -> "Formula":  # noqa: MAN001
 		if not isinstance(other, int):
 			raise TypeError(f'Cannot multiply Formula by non-integer "{other}"')
 		return type(self)({k: v * other for k, v in self.items()})
 
-	def __imul__(self, other):
+	def __imul__(self, other) -> "Formula":
 		if not isinstance(other, int):
 			raise TypeError(f'Cannot multiply Formula by non-integer "{other}"')
 		for elem in self:

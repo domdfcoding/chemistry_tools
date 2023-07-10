@@ -46,7 +46,7 @@ class Synonyms(List[str]):
 		for val in initlist:
 			self.append(str(val))
 
-	def __contains__(self, synonym) -> bool:
+	def __contains__(self, synonym) -> bool:  # noqa: MAN001
 		"""
 		Return ``synonym in self``.
 

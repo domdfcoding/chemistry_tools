@@ -9,17 +9,22 @@ Test downloading.
 # stdlib
 import csv
 
+# 3rd party
+import pytest
+from domdf_python_tools.paths import PathPlus
+
 # this package
 from chemistry_tools.pubchem.images import get_structure_image
 from chemistry_tools.pubchem.properties import rest_get_properties
 
 
-def test_image_download(tmp_pathplus):
+def test_image_download(tmp_pathplus: PathPlus):
 	img = get_structure_image("Asprin")
 	img.save(tmp_pathplus / "aspirin.png")
 
 
-def test_csv_download(tmp_pathplus, pubchem_cassette):
+@pytest.mark.usefixtures("pubchem_cassette")
+def test_csv_download(tmp_pathplus: PathPlus):
 	csv_content = rest_get_properties(
 			[1, 2, 3],
 			namespace="cid",
