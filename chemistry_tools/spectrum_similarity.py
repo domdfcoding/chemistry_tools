@@ -143,7 +143,7 @@ class SpectrumSimilarity:
 			self,
 			top_label: Optional[str] = None,
 			bottom_label: Optional[str] = None,
-			filter: bool = False,  # Whether peaks below b should be filtered
+			filter: bool = False,  # Whether peaks below b should be filtered  # noqa: A002  # pylint: disable=redefined-builtin
 			) -> None:
 		"""
 		Plot the mass spectra head to tail.
