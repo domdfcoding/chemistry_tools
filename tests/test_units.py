@@ -48,7 +48,7 @@
 # 3rd party
 import numpy
 import pytest
-import quantities  # type: ignore
+import quantities  # type: ignore[import]
 
 # this package
 from chemistry_tools import units

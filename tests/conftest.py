@@ -1,7 +1,11 @@
+# stdlib
+from typing import Iterator
+
 # 3rd party
 import pytest
+import requests
 from _pytest.fixtures import FixtureRequest
-from betamax import Betamax  # type: ignore
+from betamax import Betamax  # type: ignore[import]
 from domdf_python_tools.paths import PathPlus
 
 # this package
@@ -14,7 +18,7 @@ with Betamax.configure() as config:
 
 
 @pytest.fixture()
-def pubchem_cassette(request: FixtureRequest):
+def pubchem_cassette(request: FixtureRequest) -> Iterator[requests.Session]:
 	"""
 	Provides a Betamax cassette scoped to the test function
 	which record and plays back interactions with the PubChem API.

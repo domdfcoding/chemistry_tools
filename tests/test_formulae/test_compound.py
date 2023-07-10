@@ -74,7 +74,7 @@
 from operator import attrgetter
 
 # 3rd party
-import quantities  # type: ignore
+import quantities  # type: ignore[import]
 
 # this package
 from chemistry_tools.formulae.compound import Compound

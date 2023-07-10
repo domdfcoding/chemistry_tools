@@ -100,7 +100,7 @@ class Bond:
 	def __repr__(self) -> str:
 		return f"Bond({self.aid1}, {self.aid2}, {self.order!r})"
 
-	def __eq__(self, other) -> bool:
+	def __eq__(self, other) -> bool:  # noqa: MAN001
 		return (
 			isinstance(other, type(self))
 			and self.aid1 == other.aid1

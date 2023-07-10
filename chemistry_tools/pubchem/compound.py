@@ -51,7 +51,7 @@ from typing import Any, Dict, FrozenSet, List, Optional, Sequence, Type, TypeVar
 # 3rd party
 from domdf_python_tools.bases import Dictable
 from domdf_python_tools.doctools import prettify_docstrings
-from pandas import DataFrame, Series  # type: ignore
+from pandas import DataFrame, Series  # type: ignore[import]
 
 # this package
 from chemistry_tools._memoized_property import memoized_property
@@ -87,7 +87,7 @@ class Compound(Dictable):
 	:param description:
 	"""
 
-	def __init__(self, title: str, CID: int, description, **_):
+	def __init__(self, title: str, CID: int, description: str, **_):
 		super().__init__()
 
 		self.title: str = str(title)
@@ -103,7 +103,7 @@ class Compound(Dictable):
 		self._has_full_record: bool = False
 
 	@property
-	def __dict__(self):
+	def __dict__(self):  # noqa: MAN002
 		return dict(
 				title=self.title,
 				CID=self.CID,
@@ -218,7 +218,7 @@ class Compound(Dictable):
 		coords_dict = self._record.get("coords", None)
 		return parse_bonds(bonds_dict, coords_dict)
 
-	def precache(self):
+	def precache(self) -> None:
 		"""
 		Precache all properties for this compound.
 		"""
@@ -349,7 +349,7 @@ class Compound(Dictable):
 		return self._synonyms
 
 	@classmethod
-	def from_cid(cls: Type['C'], cid, record_type: str = "2d") -> "Compound":
+	def from_cid(cls: Type['C'], cid: Union[str, int], record_type: str = "2d") -> "Compound":
 		"""
 		Returns the Compound objects for the compound with the given CID.
 		"""

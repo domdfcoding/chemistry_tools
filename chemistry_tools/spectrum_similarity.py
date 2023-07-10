@@ -54,7 +54,7 @@ from typing import Mapping, Optional, Sequence, Tuple, Union
 
 # 3rd party
 import numpy
-import pandas  # type: ignore
+import pandas  # type: ignore[import]
 
 __all__ = ["spectrum_similarity", "normalize", "create_array"]
 
@@ -122,7 +122,7 @@ class SpectrumSimilarity:
 		self.reverse_alignment = reverse_alignment.dropna()  # Remove rows containing NaN
 		self.reverse_alignment.columns = ["mz", "intensity_top", "intensity_bottom"]
 
-	def _calculate_score(self, alignment) -> float:
+	def _calculate_score(self, alignment: pandas.DataFrame) -> float:
 		u = numpy.array(alignment.iloc[:, 1])
 		v = numpy.array(alignment.iloc[:, 2])
 
@@ -153,7 +153,7 @@ class SpectrumSimilarity:
 		"""
 
 		# 3rd party
-		import matplotlib.pyplot as plt  # type: ignore  # nodep
+		import matplotlib.pyplot as plt  # type: ignore[import]  # nodep
 
 		_, ax = plt.subplots()
 		# fig.scatter(top_plot["mz"],top_plot["intensity"], s=0)

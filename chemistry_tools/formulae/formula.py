@@ -172,7 +172,7 @@ class Formula(defaultdict, Counter):
 
 		self._set_charge(charge)
 
-	def _set_charge(self, charge: int):
+	def _set_charge(self, charge: int) -> None:
 		# Get charge
 		if charge and self.charge:
 			if charge != self.charge:
@@ -635,11 +635,11 @@ class Formula(defaultdict, Counter):
 
 		return self.__class__(self, charge=self.charge)
 
-	def __missing__(self, key):
+	def __missing__(self, key) -> int:  # noqa: MAN001
 		# override default behavior: we don't want to add 0's to the dictionary
 		return 0
 
-	def __setitem__(self, key, value) -> None:
+	def __setitem__(self, key: str, value: float) -> None:
 		if isinstance(value, float):
 			value = int(round(value))
 		elif not isinstance(value, int):
@@ -649,32 +649,32 @@ class Formula(defaultdict, Counter):
 		elif key in self:
 			del self[key]
 
-	def __add__(self, other):
+	def __add__(self, other):  # noqa: MAN001,MAN002
 		result = self.copy()
 		for elem, count in other.items():
 			result[elem] += count
 		return result
 
-	def __iadd__(self, other) -> "Formula":
+	def __iadd__(self, other) -> "Formula":  # noqa: MAN001
 		for elem, count in other.items():
 			self[elem] += count
 		return self
 
-	def __radd__(self, other):
+	def __radd__(self, other):  # noqa: MAN001,MAN002
 		return self + other
 
-	def __sub__(self, other):
+	def __sub__(self, other):  # noqa: MAN001,MAN002
 		result = self.copy()
 		for elem, count in other.items():
 			result[elem] -= count
 		return result
 
-	def __isub__(self, other) -> "Formula":
+	def __isub__(self, other) -> "Formula":  # noqa: MAN001
 		for elem, count in other.items():
 			self[elem] -= count
 		return self
 
-	def __rsub__(self, other):
+	def __rsub__(self, other):  # noqa: MAN001,MAN002
 		return (self - other) * (-1)
 
 	def __mul__(self, other) -> "Formula":  # noqa: MAN001
@@ -682,17 +682,17 @@ class Formula(defaultdict, Counter):
 			raise TypeError(f'Cannot multiply Formula by non-integer "{other}"')
 		return type(self)({k: v * other for k, v in self.items()})
 
-	def __imul__(self, other) -> "Formula":
+	def __imul__(self, other) -> "Formula":  # noqa: MAN001
 		if not isinstance(other, int):
 			raise TypeError(f'Cannot multiply Formula by non-integer "{other}"')
 		for elem in self:
 			self[elem] *= other
 		return self
 
-	def __rmul__(self, other):
+	def __rmul__(self, other):  # noqa: MAN001,MAN002
 		return self * other
 
-	def __eq__(self, other) -> bool:
+	def __eq__(self, other) -> bool:  # noqa: MAN001
 		if isinstance(other, (dict, Formula)):
 			self_items = {i for i in self.items() if i[1]}
 			other_items = {i for i in other.items() if i[1]}
@@ -874,7 +874,7 @@ class Formula(defaultdict, Counter):
 		return len(self)
 
 	@property
-	def elements(self) -> List[str]:  # type: ignore
+	def elements(self) -> List[str]:  # type: ignore[override]
 		"""
 		A list of the element symbols in the formula.
 		"""

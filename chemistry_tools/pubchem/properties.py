@@ -47,10 +47,10 @@ Functions and classes to access properties of compounds in the PubChem database.
 
 # stdlib
 import warnings
-from typing import Any, Callable, Dict, Iterable, List, NamedTuple, Sequence, Union
+from typing import Any, Callable, Dict, Iterable, List, NamedTuple, Optional, Sequence, Union
 
 # 3rd party
-from pandas import DataFrame  # type: ignore
+from pandas import DataFrame  # type: ignore[import]
 
 # this package
 from chemistry_tools.formulae import Formula
@@ -311,7 +311,7 @@ PROPERTY_MAP: Dict[str, str] = {prop.attr_name: prop.name for prop in _propertie
 
 def rest_get_properties_json(
 		identifier: Union[str, int, Sequence[Union[str, int]]],
-		namespace=PubChemNamespace.name,
+		namespace: Union[str, PubChemNamespace] = PubChemNamespace.name,
 		properties: Union[Sequence[str], str] = '',
 		**kwargs
 		) -> Dict:
@@ -347,7 +347,7 @@ def rest_get_properties(
 		namespace=PubChemNamespace.name,
 		properties: Union[Sequence[str], str] = '',
 		format_: Union[PubChemFormats, str] = PubChemFormats.CSV,
-		):
+		) -> str:
 	r"""
 	Returns the properties for the compound with the given identifier in the desired format.
 
@@ -520,7 +520,7 @@ def parse_properties(property_data: Dict) -> List[Dict]:
 
 class __BasePubChemProperty(NamedTuple):
 	label: str
-	name: str
+	name: Optional[str]
 	value: Any
 	dtype: Callable
 	source: Dict
@@ -539,7 +539,7 @@ class PubChemProperty(__BasePubChemProperty):
 
 	__slots__: List[str] = []
 
-	def __new__(cls, label, name=None, value=None, dtype=None, source=None):  # noqa: D102
+	def __new__(cls, label: str, name: Optional[str] = None, value=None, dtype=None, source=None):  # noqa: D102
 		if source is None:
 			source = {}
 

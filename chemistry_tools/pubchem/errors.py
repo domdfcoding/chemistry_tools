@@ -47,6 +47,9 @@ Error handling.
 # stdlib
 import json
 
+# 3rd party
+import requests
+
 __all__ = [
 		"ResponseParseError",
 		"PubChemHTTPError",
@@ -115,7 +118,7 @@ class PubChemHTTPError(Exception):
 	Generic error class to handle all HTTP error codes.
 	"""
 
-	def __init__(self, e):
+	def __init__(self, e: requests.Response):
 		self.code = e.status_code
 		self.msg = e.reason
 		try:

@@ -227,7 +227,7 @@ class Species(Formula):
 				phase=cast(Optional[Literal['s', 'l', 'g', "aq"]], self.phase),
 				)
 
-	def __eq__(self, other) -> bool:
+	def __eq__(self, other) -> bool:  # noqa: MAN001
 		"""
 		Returns ``self == other``.
 		"""

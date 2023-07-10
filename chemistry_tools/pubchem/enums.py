@@ -76,7 +76,7 @@ class PubChemFormats(StrEnum):
 	CSV = csv = Csv = "CSV"
 	PNG = png = Png = "PNG"
 
-	def __new__(cls, value):  # noqa: D102
+	def __new__(cls, value: str):  # noqa: D102
 		obj = str.__new__(cls, value)  # noqa
 		obj._value_ = value
 		obj.__doc__ = f"{value} Format"

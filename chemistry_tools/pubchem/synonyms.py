@@ -40,7 +40,7 @@ class Synonyms(List[str]):
 	:param initlist: The content to initialise the list with.
 	"""
 
-	def __init__(self, initlist):
+	def __init__(self, initlist):  # noqa: MAN001
 		super().__init__()
 
 		for val in initlist:
@@ -60,7 +60,7 @@ class Synonyms(List[str]):
 				return True
 		return False
 
-	def append(self, synonym: str):
+	def append(self, synonym: str) -> None:
 		"""
 		Append ``synonym`` to the end of the list.
 

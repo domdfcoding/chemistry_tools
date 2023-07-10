@@ -117,7 +117,7 @@ def test_formula_to_composition():
 				("Na2CO3.1H2O(s)", r"Na_{2}CO_{3}\cdot H_{2}O(s)"),
 				]
 		)
-def test_formula_to_latex(string, expected):
+def test_formula_to_latex(string: str, expected: str):
 	assert string_to_latex(string) == expected
 
 
@@ -145,7 +145,7 @@ def test_formula_to_latex(string, expected):
 				("Na2CO3.1H2O(s)", "Na₂CO₃·H₂O(s)"),
 				]
 		)
-def test_formula_to_unicode(string, expected):
+def test_formula_to_unicode(string: str, expected: str):
 	assert string_to_unicode(string) == expected
 
 
@@ -190,8 +190,8 @@ def test_relative_atomic_masses():
 
 
 def test_mass_from_composition__formula():
-	mass = mass_from_composition(string_to_composition("NaF"))  # type: ignore
+	mass = mass_from_composition(string_to_composition("NaF"))  # type: ignore[arg-type]
 	assert rounders(mass, "0.000000") == decimal.Decimal("41.988172")
 
-	Fminus = mass_from_composition(string_to_composition("F/-"))  # type: ignore
+	Fminus = mass_from_composition(string_to_composition("F/-"))  # type: ignore[arg-type]
 	assert abs(Fminus - 18.998403163 - 5.489e-4) < 1e-7

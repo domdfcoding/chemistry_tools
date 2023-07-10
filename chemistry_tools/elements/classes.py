@@ -171,7 +171,7 @@ class Element(Dictable):
 					self._isotopes[int(massnumber)] = Isotope(*isotope, massnumber)
 
 	@property
-	def __dict__(self):
+	def __dict__(self):  # noqa: MAN002
 		return dict(
 				number=self._number,
 				symbol=self._symbol,
@@ -592,7 +592,7 @@ class Isotope(Dictable):
 		return f"Isotope({repr(self.mass)}, {repr(self.abundance)}, {repr(self.massnumber)})"
 
 	@property
-	def __dict__(self):
+	def __dict__(self):  # noqa: MAN002
 		return dict(
 				mass=self.mass,
 				abundance=self.abundance,
@@ -642,7 +642,7 @@ class Elements(Iterable[Element]):
 		elements = f"Elements(\n    {elements},\n)"
 		return elements
 
-	def __contains__(self, item) -> bool:
+	def __contains__(self, item) -> bool:  # noqa: MAN001
 		return item in self._dict
 
 	def __iter__(self) -> Iterator[Element]:
@@ -665,7 +665,7 @@ class Elements(Iterable[Element]):
 	@overload
 	def __getitem__(self, key: Union[str, int, float]) -> Element: ...
 
-	def __getitem__(self, key):
+	def __getitem__(self, key):  # noqa: MAN001,MAN002
 		"""
 		Return ``self[key]``.
 

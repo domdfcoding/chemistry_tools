@@ -80,7 +80,7 @@ import re
 from collections import defaultdict
 from functools import lru_cache
 from string import ascii_lowercase, ascii_uppercase
-from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence, Union
+from typing import Dict, Iterable, List, Mapping, Optional, Sequence, Union
 
 # 3rd party
 import pyparsing  # nodep
@@ -168,7 +168,7 @@ for elem in element_re:
 
 
 @lru_cache()
-def _get_formula_parser():
+def _get_formula_parser() -> pyparsing.Forward:
 	"""
 	Create a forward pyparsing parser for chemical formulae.
 
@@ -195,7 +195,6 @@ def _get_formula_parser():
 	"""
 
 	Forward, Group, OneOrMore = pyparsing.Forward, pyparsing.Group, pyparsing.OneOrMore
-	ParseResults = pyparsing.ParseResults
 	Suppress, Word, nums = pyparsing.Suppress, pyparsing.Word, pyparsing.nums
 
 	LPAR, RPAR = map(Suppress, "()")
@@ -221,7 +220,7 @@ def _get_formula_parser():
 	# add parse actions for parse-time processing
 
 	# parse action to multiply out subgroups
-	def multiplyContents(tokens):
+	def multiplyContents(tokens):  # noqa: MAN001,MAN002
 		t = tokens[0]
 		# if these tokens contain a subgroup, then use multiplier to
 		# extend counts of all elements in the subgroup
@@ -234,37 +233,37 @@ def _get_formula_parser():
 	term.setParseAction(multiplyContents)
 
 	# add parse action to sum up multiple references to the same element
-	def sum_by_element(tokens):
+	def sum_by_element(tokens) -> Optional[pyparsing.ParseResults]:  # noqa: MAN001
 		elementsList = [t[0] for t in tokens]
 
 		# construct set to see if there are duplicates
 		duplicates = len(elementsList) > len(set(elementsList))
 
 		# if there are duplicate element names, sum up by element and
-		# return a new nested ParseResults
+		# return a new nested pyparsing.ParseResults
 		if duplicates:
 			ctr: Dict = defaultdict(int)
 			for t in tokens:
 				ctr[t[0]] += t[1]
-			return ParseResults([ParseResults([k, v]) for k, v in ctr.items()])
+			return pyparsing.ParseResults([pyparsing.ParseResults([k, v]) for k, v in ctr.items()])
+		return None
 
 	# define contents of a formula as one or more terms
 	formula << OneOrMore(term)  # pylint: disable=expression-not-assigned
 	formula.setParseAction(sum_by_element)
-
 	return formula
 
 
-def _parse_stoich(stoich) -> Dict[int, Any]:
-	if stoich == 'e':  # special case, the electron is not an element
-		return {}
+# def _parse_stoich(stoich) -> Dict[int, Any]:
+# 	if stoich == 'e':  # special case, the electron is not an element
+# 		return {}
 
-	symbols = ELEMENTS.symbols + ['D', 'T']
+# 	symbols = ELEMENTS.symbols + ['D', 'T']
 
-	if re.findall('|'.join(invalid_re), stoich):
-		raise ValueError(f"Unrecognised formula: {stoich}")
+# 	if re.findall('|'.join(invalid_re), stoich):
+# 		raise ValueError(f"Unrecognised formula: {stoich}")
 
-	return {symbols.index(k) + 1: n for k, n in _get_formula_parser().parseString(stoich)}
+# 	return {symbols.index(k) + 1: n for k, n in _get_formula_parser().parseString(stoich)}
 
 
 def string_to_composition(
@@ -311,22 +310,24 @@ def string_to_composition(
 
 		# comp = _parse_stoich(stoich)
 		if stoich == 'e':  # special case, the electron is not an element
-			comp = {}
+			pass
 		else:
 			try:
 				if re.findall('|'.join(invalid_re), stoich):
 					raise ValueError(f"Unrecognised formula: {formula}")
 
-				comp = _get_formula_parser().parseString(stoich)
+				comp = _get_formula_parser().parse_string(stoich)
 			except pyparsing.ParseException:
 				raise ValueError(f"Unrecognised formula: {formula}")
 
 		# for k, v in comp.items():
-		for k, v in comp:
-			if k not in tot_comp:
-				tot_comp[k] = m * v
-			else:
-				tot_comp[k] += m * v
+			k: int
+			v: int
+			for k, v in comp:
+				if k not in tot_comp:
+					tot_comp[k] = m * v
+				else:
+					tot_comp[k] += m * v
 
 	if chg_tok is not None:
 		tot_comp[0] = _get_charge(chg_tok)

@@ -52,7 +52,7 @@ Scientific constants.
 from typing import Dict, NamedTuple, Optional
 
 # 3rd party
-import quantities  # type: ignore
+import quantities  # type: ignore[import]
 
 __all__ = [
 		"Constant",

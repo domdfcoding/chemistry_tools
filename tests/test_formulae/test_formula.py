@@ -444,14 +444,14 @@ def test_empirical_formula(formula_1: str, formula_2: str):
 				"HeyO2",
 				]
 		)
-def test_invalid_formulae(formula):
+def test_invalid_formulae(formula: str):
 	pattern = f"Unrecognised formula: {re.escape(formula.replace(' ', ''))}"
 	with pytest.raises(ValueError, match=pattern):
 		Formula.from_string(formula)
 
 
 @pytest.mark.parametrize("formula", ['A'])
-def test_invalid_formulae_unknown_element(formula):
+def test_invalid_formulae_unknown_element(formula: str):
 	with pytest.raises(ValueError, match=f"Unknown chemical element with symbol {formula}"):
 		Formula.from_string(formula)
 

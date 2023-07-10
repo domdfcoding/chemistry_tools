@@ -7,7 +7,7 @@ Test optional pandas functionality.
 """
 
 # 3rd party
-import pandas  # type: ignore
+import pandas  # type: ignore[import]
 import pytest
 
 # this package
@@ -32,10 +32,11 @@ from chemistry_tools.pubchem.properties import get_properties
 @pytest.mark.usefixtures("pubchem_cassette")
 def test_properties_dataframe():
 	df = get_properties("1,2,3,4", ["IsomericSMILES", "XLogP", "InChIKey"], "cid", as_dataframe=True)
-	assert df.ndim == 2  # type: ignore
-	assert df.index.names == ["CID"]  # type: ignore
-	assert len(df.index) == 4  # type: ignore
-	assert df.columns.values.tolist() == ["IsomericSMILES", "InChIKey", "XLogP"]  # type: ignore
+	assert isinstance(df, pandas.DataFrame)
+	assert df.ndim == 2
+	assert df.index.names == ["CID"]
+	assert len(df.index) == 4
+	assert df.columns.values.tolist() == ["IsomericSMILES", "InChIKey", "XLogP"]
 
 
 @pytest.mark.usefixtures("pubchem_cassette")

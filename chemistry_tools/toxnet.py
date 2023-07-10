@@ -29,7 +29,7 @@ from typing import Any, Dict
 
 # 3rd party
 import requests
-from bs4 import BeautifulSoup  # type: ignore  # nodep
+from bs4 import BeautifulSoup  # type: ignore[import]  # nodep
 
 # this package
 from .property_format import *

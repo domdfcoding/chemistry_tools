@@ -91,7 +91,7 @@ class Atom:
 	def __repr__(self) -> str:
 		return f"Atom({self.aid}, {self.element})"
 
-	def __eq__(self, other) -> bool:
+	def __eq__(self, other) -> bool:  # noqa: MAN001
 		return (
 			isinstance(other, type(self))
 			and self.aid == other.aid

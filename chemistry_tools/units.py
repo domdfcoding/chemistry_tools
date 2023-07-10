@@ -53,8 +53,8 @@ from typing import Tuple, Union
 
 # 3rd party
 import numpy
-import quantities  # type: ignore
-import quantities.markup  # type: ignore
+import quantities  # type: ignore[import]
+import quantities.markup  # type: ignore[import]
 
 __all__ = [
 		"as_latex",
@@ -81,7 +81,7 @@ __all__ = [
 		]
 
 
-def as_latex(quant: quantities.quantity.Quantity):
+def as_latex(quant: quantities.quantity.Quantity) -> str:
 	r"""
 	Returns the LaTeX reperesentation of the unit of a quantity.
 
@@ -129,14 +129,14 @@ def compare_equality(
 	except TypeError:
 		# We might be dealing with e.g. None (None + None raises TypeError)
 		try:
-			len(a)  # type: ignore
+			len(a)  # type: ignore[arg-type]
 		except TypeError:
 			# Assumed scalar
 			return a == b
 		else:
-			if len(a) != len(b):  # type: ignore
+			if len(a) != len(b):  # type: ignore[arg-type]
 				return False
-			return all(compare_equality(_a, _b) for _a, _b in zip(a, b))  # type: ignore
+			return all(compare_equality(_a, _b) for _a, _b in zip(a, b))  # type: ignore[arg-type]
 	except ValueError:
 		return False
 	else:
@@ -175,9 +175,9 @@ def allclose(a, b, rtol=1e-8, atol=None) -> bool:
 		try:
 			len(lim)
 		except TypeError:
-			return numpy.all([_d <= lim for _d in d])  # type: ignore
+			return numpy.all([_d <= lim for _d in d])  # type: ignore[return-value]
 		else:
-			return numpy.all([_d <= _lim for _d, _lim in zip(d, lim)])  # type: ignore
+			return numpy.all([_d <= _lim for _d, _lim in zip(d, lim)])  # type: ignore[return-value]
 
 
 # TODO: decide whether to deprecate in favor of "number_to_scientific_latex"?
