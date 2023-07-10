@@ -4,7 +4,7 @@ build-backend = "whey"
 
 [project]
 name = "chemistry_tools"
-version = "0.6.0"
+version = "1.0.0b1"
 description = "Python tools for analysis of chemical compounds."
 readme = "README.rst"
 keywords = [ "chemistry", "utility",]
