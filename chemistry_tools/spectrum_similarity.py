@@ -50,48 +50,216 @@ Mass spectrum similarity calculations.
 #
 
 # stdlib
-from typing import Mapping, Optional, Sequence, Tuple, Union, overload
+from typing import Mapping, Optional, Sequence, Tuple, Union
 
 # 3rd party
 import numpy
 import pandas  # type: ignore
-from typing_extensions import Literal
 
 __all__ = ["spectrum_similarity", "normalize", "create_array"]
 
 
-@overload
-def spectrum_similarity(
-		spec_top: numpy.ndarray,
-		spec_bottom: numpy.ndarray,
-		t: float = ...,
-		b: float = ...,
-		top_label: Optional[str] = ...,
-		bottom_label: Optional[str] = ...,
-		xlim: Tuple[int, int] = ...,
-		x_threshold: float = ...,
-		print_alignment: bool = ...,
-		print_graphic: bool = ...,
-		output_list: Literal[True] = True,
-		) -> Tuple[float, float, pandas.DataFrame]: ...
+class SpectrumSimilarity:
+	"""
+	Calculate the similarity score for two mass spectra.
+
+	:param spec_top: Array containing the experimental spectrum's peak list with the m/z values in the
+		first column and corresponding intensities in the second
+	:param spec_bottom: Array containing the reference spectrum's peak list with the m/z values in the
+		first column and corresponding intensities in the second
+	:param b: numeric value specifying the baseline threshold for peak identification.
+		Expressed as a percent of the maximum intensity.
+	:param x_threshold: numeric value specifying
+	:param xlim: tuple of length 2, defining the beginning and ending values of the x-axis.
+
+	.. versionadded:: 1.0.0
+
+	.. TODO: t: numeric value specifying the tolerance used to align the m/z values of the two spectra.
+	"""
+
+	top_df: pandas.DataFrame
+	_top_df_plot: pandas.DataFrame  # includes peaks below ``b``
+	bottom_df: pandas.DataFrame
+	_bottom_df_plot: pandas.DataFrame  # includes peaks below ``b``
+	b: float
+	alignment: pandas.DataFrame
+
+	def __init__(
+			self,
+			spec_top: numpy.ndarray,
+			spec_bottom: numpy.ndarray,
+			# t: float = 0.25,
+			b: float = 1,
+			xlim: Tuple[int, int] = (50, 1200),  # x_threshold: float = 0,
+			):
+
+		# if x_threshold < 0:
+		# 	raise ValueError("x_threshold argument must be zero or a positive number")
+
+		self.b = b
+		self.xlim = xlim
+
+		# format spectra and normalize intensitites
+		self.top_df, self._top_df_plot = self._build_dataframe(spec_top)
+		self.bottom_df, self._bottom_df_plot = self._build_dataframe(spec_bottom)
+
+		# align the m/z axis of the two spectra, the bottom spectrum is used as the reference
+
+		# Unimplemented R code
+		#   for(i in 1:nrow(bottom))
+		# 	top["mz"][bottom["mz"][i] >= top["mz"] - t & bottom["mz"][i] <= top["mz"] + t] = bottom["mz"][i]
+		# 	top[,1][bottom[,1][i] >= top[,1] - t & bottom[,1][i] <= top[,1] + t] <- bottom[,1][i]
+		#   alignment <- merge(top, bottom, by = 1, all = TRUE)
+		#   if(length(unique(alignment[,1])) != length(alignment[,1])) warning("the m/z tolerance is set too high")
+		# alignment[,c(2,3)][is.na(alignment[,c(2,3)])] <- 0   # convert NAs to zero (R-Help, Sept. 15, 2004, John Fox)
+		# names(alignment) <- c("mz", "intensity.top", "intensity.bottom")
+
+		alignment = pandas.merge(self.top_df, self.bottom_df, on="mz", how="outer")
+		self.alignment = alignment.fillna(value=0)  # Convert NaN to 0
+		self.alignment.columns = ["mz", "intensity_top", "intensity_bottom"]
+
+		reverse_alignment = pandas.merge(self.top_df, self.bottom_df, on="mz", how="right")
+		self.reverse_alignment = reverse_alignment.dropna()  # Remove rows containing NaN
+		self.reverse_alignment.columns = ["mz", "intensity_top", "intensity_bottom"]
+
+	def _calculate_score(self, alignment) -> float:
+		u = numpy.array(alignment.iloc[:, 1])
+		v = numpy.array(alignment.iloc[:, 2])
+
+		return numpy.dot(u, v) / (numpy.sqrt(numpy.sum(numpy.square(u))) * numpy.sqrt(numpy.sum(numpy.square(v))))
+
+	def score(self) -> Tuple[float, float]:
+		# similarity score calculation
+
+		# Unimplemented R code
+		# alignment <- alignment[alignment[,1] >= x.threshold, ]
+
+		similarity_score = self._calculate_score(self.alignment)
+		reverse_similarity_score = self._calculate_score(self.reverse_alignment)
+
+		return similarity_score, reverse_similarity_score
+
+	def plot(
+			self,
+			top_label: Optional[str] = None,
+			bottom_label: Optional[str] = None,
+			filter: bool = False,  # Whether peaks below b should be filtered
+			) -> None:
+		"""
+		Plot the mass spectra head to tail.
+
+		:param top_label: string to label the top spectrum.
+		:param bottom_label: string to label the bottom spectrum.
+		"""
+
+		# 3rd party
+		import matplotlib.pyplot as plt  # type: ignore  # nodep
+
+		_, ax = plt.subplots()
+		# fig.scatter(top_plot["mz"],top_plot["intensity"], s=0)
+
+		if filter:
+			ax.vlines(self.top_df["mz"], 0, self.top_df["intensity"], color="blue")
+			ax.vlines(self.bottom_df["mz"], 0, -self.bottom_df["intensity"], color="red")
+		else:
+			ax.vlines(self._top_df_plot["mz"], 0, self._top_df_plot["intensity"], color="blue")
+			ax.vlines(self._bottom_df_plot["mz"], 0, -self._bottom_df_plot["intensity"], color="red")
+
+		ax.set_ylim(-125, 125)
+		ax.set_xlim(self.xlim[0], self.xlim[1])
+		ax.axhline(color="black", linewidth=0.5)
+		ax.set_ylabel("Intensity (%)")
+		ax.set_xlabel("m/z", style="italic", family="serif")
+
+		h_centre = self.xlim[0] + (self.xlim[1] - self.xlim[0]) // 2
+
+		ax.text(h_centre, 110, top_label, horizontalalignment="center", verticalalignment="center")
+		ax.text(h_centre, -110, bottom_label, horizontalalignment="center", verticalalignment="center")
+		return ax
+
+		# Unimplemented R code
+		# 	ticks <- c(-100, -50, 0, 50, 100)
+		# 	plot.window(xlim = c(0, 20), ylim = c(-10, 10))
+		#
+		#
+		#   if(output.list == TRUE) {
+		#
+		# 	# Grid graphics head to tail plot
+		#
+		# 	headTailPlot <- function() {
+		#
+		# 	  pushViewport(plotViewport(c(5, 5, 2, 2)))
+		# 	  pushViewport(dataViewport(xscale = xlim, yscale = c(-125, 125)))
+		#
+		# 	  grid.rect()
+		# 	  tmp <- pretty(xlim)
+		# 	  xlabels <- tmp[tmp >= xlim[1] & tmp <= xlim[2]]
+		# 	  grid.xaxis(at = xlabels)
+		# 	  grid.yaxis(at = c(-100, -50, 0, 50, 100))
+		#
+		# 	  grid.segments(top_plot$mz,
+		# 					top_plot$intensity,
+		# 					top_plot$mz,
+		# 					rep(0, length(top_plot$intensity)),
+		# 					default.units = "native",
+		# 					gp = gpar(lwd = 0.75, col = "blue"))
+		#
+		# 	  grid.segments(bottom_plot$mz,
+		# 					-bottom_plot$intensity,
+		# 					bottom_plot$mz,
+		# 					rep(0, length(bottom_plot$intensity)),
+		# 					default.units = "native",
+		# 					gp = gpar(lwd = 0.75, col = "red"))
+		#
+		# 	  grid.abline(intercept = 0, slope = 0)
+		#
+		# 	  grid.text("intensity (%)", x = unit(-3.5, "lines"), rot = 90)
+		# 	  grid.text("m/z", y = unit(-3.5, "lines"))
+		#
+		# 	  popViewport(1)
+		# 	  pushViewport(dataViewport(xscale = c(0, 20), yscale = c(-10, 10)))
+		# 	  grid.text(top.label, unit(10, "native"), unit(9, "native"))
+		# 	  grid.text(bottom.label, unit(10, "native"), unit(-9, "native"))
+		#
+		# 	  popViewport(2)
+		#
+		# 	}
+		#
+		# 	p <- grid.grabExpr(headTailPlot())
+		#
+		#   }
+		#
+		# with pandas.option_context('display.max_rows', None, 'display.max_columns', None):
+		# 	print(similarity_score)
+
+		# Unimplemented R code
+		#
+		# return(list(similarity.score = similarity_score,
+		# 	alignment = alignment,
+		# 	plot = p))
+		#
+
+	def print_alignment(self) -> None:
+		"""
+		Print the dataframe giving aligned peaks in the top and bottom spectra.
+		"""
+
+		with pandas.option_context("display.max_rows", None, "display.max_columns", None):
+			print(self.alignment)
+
+	def _build_dataframe(self, spectrum: numpy.ndarray) -> Tuple[pandas.DataFrame, pandas.DataFrame]:
+		# format spectra and normalize intensitites
+		tmp = pandas.DataFrame(data=spectrum, columns=["mz", "intensity"])
+		tmp["normalized"] = tmp.apply(normalize, args=(max(tmp["intensity"]), ), axis=1)
+		tmp = tmp[tmp["mz"].between(self.xlim[0], self.xlim[1])]
+		plot = tmp[["mz", "normalized"]].copy()  # data frame for plotting spectrum
+		plot.columns = ["mz", "intensity"]
+		out = plot[plot["intensity"] >= self.b]  # data frame for similarity score calculation
+
+		return out, plot
 
 
-@overload
-def spectrum_similarity(
-		spec_top: numpy.ndarray,
-		spec_bottom: numpy.ndarray,
-		t: float,
-		b: float,
-		top_label: Optional[str],
-		bottom_label: Optional[str],
-		xlim: Tuple[int, int],
-		x_threshold: float,
-		print_alignment: bool,
-		print_graphic: bool,
-		output_list: Literal[False],
-		) -> Tuple[float, float]: ...
-
-
+# Deprecated
 def spectrum_similarity(
 		spec_top: numpy.ndarray,
 		spec_bottom: numpy.ndarray,
@@ -118,7 +286,7 @@ def spectrum_similarity(
 	:param top_label: string to label the top spectrum.
 	:param bottom_label: string to label the bottom spectrum.
 	:param xlim: tuple of length 2, defining the beginning and ending values of the x-axis.
-	:param x_threshold: numeric value specifying
+	:param x_threshold:
 	:param print_alignment:  whether the intensities should be printed
 	:param print_graphic:
 	:param output_list: whether the intensities should be returned as a third element of the tuple.
@@ -187,7 +355,7 @@ def spectrum_similarity(
 
 	if print_graphic:
 		# 3rd party
-		import matplotlib.pyplot as plt  # type: ignore  # nodep
+		import matplotlib.pyplot as plt  # nodep
 
 		fig, ax = plt.subplots()
 		# fig.scatter(top_plot["mz"],top_plot["intensity"], s=0)
@@ -274,7 +442,7 @@ def spectrum_similarity(
 
 # simscore <- as.vector((u %*% v)^2 / (sum(u^2) * sum(v^2)))   # cos squared
 
-SpectrumSimilarity = spectrum_similarity
+# SpectrumSimilarity = spectrum_similarity
 
 
 def normalize(row: Union[Mapping, pandas.Series], max_val: Union[float, str]) -> float:
