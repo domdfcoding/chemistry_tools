@@ -56,25 +56,26 @@ from typing import Mapping, Optional, Sequence, Tuple, Union
 import numpy
 import pandas  # type: ignore[import]
 
-__all__ = ["spectrum_similarity", "normalize", "create_array"]
+__all__ = ["spectrum_similarity", "normalize", "create_array", "SpectrumSimilarity"]
 
 
 class SpectrumSimilarity:
 	"""
 	Calculate the similarity score for two mass spectra.
 
-	:param spec_top: Array containing the experimental spectrum's peak list with the m/z values in the
+	:param spec_top: Array containing the experimental spectrum's peak list with the *m/z* values in the
 		first column and corresponding intensities in the second
-	:param spec_bottom: Array containing the reference spectrum's peak list with the m/z values in the
+	:param spec_bottom: Array containing the reference spectrum's peak list with the *m/z* values in the
 		first column and corresponding intensities in the second
 	:param b: numeric value specifying the baseline threshold for peak identification.
 		Expressed as a percent of the maximum intensity.
-	:param x_threshold: numeric value specifying
 	:param xlim: tuple of length 2, defining the beginning and ending values of the x-axis.
 
 	.. versionadded:: 1.0.0
 
-	.. TODO: t: numeric value specifying the tolerance used to align the m/z values of the two spectra.
+	.. TODO:
+		x_threshold: numeric value specifying
+		t: numeric value specifying the tolerance used to align the *m/z* values of the two spectra.
 	"""
 
 	top_df: pandas.DataFrame
@@ -129,7 +130,9 @@ class SpectrumSimilarity:
 		return numpy.dot(u, v) / (numpy.sqrt(numpy.sum(numpy.square(u))) * numpy.sqrt(numpy.sum(numpy.square(v))))
 
 	def score(self) -> Tuple[float, float]:
-		# similarity score calculation
+		"""
+		Returns the similarity score.
+		"""
 
 		# Unimplemented R code
 		# alignment <- alignment[alignment[,1] >= x.threshold, ]
@@ -276,11 +279,13 @@ def spectrum_similarity(
 	"""
 	Calculate the similarity score for two mass spectra.
 
-	:param spec_top: Array containing the experimental spectrum's peak list with the m/z values in the
+	.. attention:: The :class:`~.SpectrumSimilarity` class is recommended over this function.
+
+	:param spec_top: Array containing the experimental spectrum's peak list with the *m/z* values in the
 		first column and corresponding intensities in the second
-	:param spec_bottom: Array containing the reference spectrum's peak list with the m/z values in the
+	:param spec_bottom: Array containing the reference spectrum's peak list with the *m/z* values in the
 		first column and corresponding intensities in the second
-	:param t: numeric value specifying the tolerance used to align the m/z values of the two spectra.
+	:param t: numeric value specifying the tolerance used to align the *m/z* values of the two spectra.
 	:param b: numeric value specifying the baseline threshold for peak identification.
 		Expressed as a percent of the maximum intensity.
 	:param top_label: string to label the top spectrum.
@@ -459,7 +464,7 @@ def normalize(row: Union[Mapping, pandas.Series], max_val: Union[float, str]) ->
 
 def create_array(intensities: Sequence[float], mz: Sequence[float]) -> numpy.ndarray:
 	"""
-	Create a :class:`numpy.ndarray`, in a format appropriate for :func:`~.spectrum_similarity`,
+	Create a :class:`numpy.ndarray`, in a format appropriate for :class:`~.SpectrumSimilarity`,
 	from a list of intensities and a list of *m/z* values.
 
 	:param intensities: List of intensities

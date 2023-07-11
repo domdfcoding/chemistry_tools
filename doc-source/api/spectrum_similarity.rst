@@ -3,3 +3,4 @@
 ===========================================
 
 .. automodule:: chemistry_tools.spectrum_similarity
+	:no-show-inheritance:
