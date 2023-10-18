@@ -294,7 +294,7 @@ def hill_order(symbols: Sequence[str]) -> Iterator[str]:
 	symbols_list: List[str] = list(set(symbols))
 
 	carbon_isotopes = list(filter(_hill_carbon_re.findall, symbols_list))
-	print(carbon_isotopes)
+	# print(carbon_isotopes)
 
 	if carbon_isotopes:
 		for isotope in sorted(carbon_isotopes):
