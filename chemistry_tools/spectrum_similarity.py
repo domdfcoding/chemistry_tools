@@ -138,7 +138,10 @@ class SpectrumSimilarity:
 		# alignment <- alignment[alignment[,1] >= x.threshold, ]
 
 		similarity_score = self._calculate_score(self.alignment)
-		reverse_similarity_score = self._calculate_score(self.reverse_alignment)
+		if self.reverse_alignment.empty:
+			reverse_similarity_score = 0
+		else:
+			reverse_similarity_score = self._calculate_score(self.reverse_alignment)
 
 		return similarity_score, reverse_similarity_score
 
