@@ -139,7 +139,7 @@ class SpectrumSimilarity:
 
 		similarity_score = self._calculate_score(self.alignment)
 		if self.reverse_alignment.empty:
-			reverse_similarity_score = 0
+			reverse_similarity_score = 0.0
 		else:
 			reverse_similarity_score = self._calculate_score(self.reverse_alignment)
 
