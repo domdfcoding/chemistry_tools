@@ -119,9 +119,10 @@ class SpectrumSimilarity:
 		self.alignment = alignment.fillna(value=0)  # Convert NaN to 0
 		self.alignment.columns = ["mz", "intensity_top", "intensity_bottom"]
 
+		# Exclude peaks from top spectrum if not in bottom spectrum
 		reverse_alignment = pandas.merge(self.top_df, self.bottom_df, on="mz", how="right")
-		self.reverse_alignment = reverse_alignment.dropna()  # Remove rows containing NaN
-		self.reverse_alignment.columns = ["mz", "intensity_top", "intensity_bottom"]
+		reverse_alignment.columns = ["mz", "intensity_top", "intensity_bottom"]
+		self.reverse_alignment = reverse_alignment.dropna(subset=["intensity_bottom"]).fillna(value=0)
 
 	def _calculate_score(self, alignment: pandas.DataFrame) -> float:
 		u = numpy.array(alignment.iloc[:, 1])
