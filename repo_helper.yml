@@ -83,8 +83,8 @@ github_ci_requirements:
   post:
    - sudo apt install zlib1g zlib1g-dev
 
-tox_unmanaged:
- - testenv
+# tox_unmanaged:
+#  - testenv
 
 sphinx_conf_epilogue:
  - latex_elements["preamble"] = "\\usepackage{textgreek}\\usepackage{multicol}"
