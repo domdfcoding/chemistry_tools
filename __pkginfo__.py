@@ -4,7 +4,12 @@ __all__ = ["extras_require"]
 
 extras_require = {
 		"pubchem": [
-				"cawdrey>=0.5.0", "mathematical>=0.5.1", "pillow>=9.0.0", "pyparsing>=2.4.6", "tabulate>=0.8.9"
+				"cawdrey>=0.5.0",
+				"mathematical>=0.5.1",
+				"pillow>=9.0.0",
+				'pillow<=10.2.0; platform_python_implementation == "PyPy" and python_version < "3.9" and platform_system == "Windows"',
+				"pyparsing>=2.4.6",
+				"tabulate>=0.8.9"
 				],
 		"formulae": ["cawdrey>=0.5.0", "mathematical>=0.5.1", "pyparsing>=2.4.6", "tabulate>=0.8.9"],
 		"plotting": ["matplotlib>=3.6.0"],
@@ -15,6 +20,7 @@ extras_require = {
 				"mathematical>=0.5.1",
 				"matplotlib>=3.6.0",
 				"pillow>=9.0.0",
+				'pillow<=10.2.0; platform_python_implementation == "PyPy" and python_version < "3.9" and platform_system == "Windows"',
 				"pyparsing>=2.4.6",
 				"tabulate>=0.8.9"
 				]
