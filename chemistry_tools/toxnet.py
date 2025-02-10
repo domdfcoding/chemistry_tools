@@ -29,7 +29,7 @@ from typing import Any, Dict
 
 # 3rd party
 import requests
-from bs4 import BeautifulSoup  # type: ignore[import]  # nodep
+from bs4 import BeautifulSoup  # nodep
 
 # this package
 from .property_format import *
@@ -52,7 +52,11 @@ def toxnet(cas: str) -> Dict[str, Any]:
 		# print(origin_url)
 		# print(origin_soup.find("a", {"id": "anch_103"}))
 		# print(origin_soup.find("input", {"name": "dfield"}))
-		data_url = origin_soup.find("input", {"name": "dfield"}).find_next_sibling('a')["href"][:-4] + "cpp"
+		input_tag = origin_soup.find("input", {"name": "dfield"})
+		assert input_tag is not None
+		a_tag = input_tag.find_next_sibling('a')
+		assert a_tag is not None
+		data_url = a_tag["href"][:-4] + "cpp"  # type: ignore[index]
 		# print(data_url)
 		data_page = requests.get(base_url + data_url)
 		data_soup = BeautifulSoup(data_page.text, "html.parser")
@@ -61,7 +65,7 @@ def toxnet(cas: str) -> Dict[str, Any]:
 
 	physical_properties: Dict[str, Any] = {}
 
-	for prop in data_soup.findAll("h3"):
+	for prop in data_soup.find_all("h3"):
 		prop_name = str(prop).replace("<h3>", '').replace(":</h3>", '')
 		prop_value_and_unit = prop.nextSibling.replace('\n', '')
 
