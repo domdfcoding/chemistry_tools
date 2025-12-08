@@ -30,7 +30,7 @@ from abc import abstractmethod
 from typing import Any, Dict, List, Optional, Set
 
 # 3rd party
-import pandas  # type: ignore[import]
+import pandas  # type: ignore[import-untyped]
 import tabulate  # nodep
 from cawdrey import FrozenOrderedDict  # nodep
 from domdf_python_tools.doctools import prettify_docstrings

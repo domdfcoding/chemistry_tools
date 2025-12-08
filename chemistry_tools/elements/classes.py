@@ -132,7 +132,7 @@ class Element(Dictable):
 			description: str = '',
 			):
 
-		super().__init__()
+		# super().__init__()
 
 		self._number: int = number
 		self._symbol: str = symbol
@@ -171,7 +171,7 @@ class Element(Dictable):
 					self._isotopes[int(massnumber)] = Isotope(*isotope, massnumber)
 
 	@property
-	def __dict__(self):  # noqa: MAN002
+	def __dict__(self):  # type: ignore[override]  # noqa: MAN002
 		return dict(
 				number=self._number,
 				symbol=self._symbol,
@@ -555,7 +555,7 @@ class Isotope(Dictable):
 	"""
 
 	def __init__(self, mass: float = 0.0, abundance: float = 1.0, massnumber: int = 0):
-		super().__init__()
+		# super().__init__()
 
 		self._mass: float = mass
 		self._abundance: float = abundance
@@ -592,7 +592,7 @@ class Isotope(Dictable):
 		return f"Isotope({repr(self.mass)}, {repr(self.abundance)}, {repr(self.massnumber)})"
 
 	@property
-	def __dict__(self):  # noqa: MAN002
+	def __dict__(self):  # type: ignore[override]  # noqa: MAN002
 		return dict(
 				mass=self.mass,
 				abundance=self.abundance,
@@ -694,7 +694,7 @@ class Elements(Iterable[Element]):
 			except (ValueError, KeyError):
 				raise KeyError(f"Unknown key: '{key}'")
 
-	@functools.lru_cache()
+	@functools.lru_cache
 	def split_isotope(self, string: str) -> Tuple[str, int]:
 		"""
 		Returns the symbol and mass number for the isotope represented by ``string``.
@@ -754,7 +754,7 @@ class HeavyHydrogen(Element):
 	Subclass of :class:`~.Element` to handle the Heavy Hydrogen isotopes Deuterium and Tritium.
 	"""
 
-	@functools.wraps(Element.__init__)
+	@functools.wraps(Element.__init__)  # type: ignore[misc]
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
 

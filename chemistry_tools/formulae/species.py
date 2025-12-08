@@ -104,11 +104,11 @@ Class to represent a formula with phase information (e.g. solid, liquid, gas, or
 #  |
 
 # stdlib
+from typing import Literal  # nodep
 from typing import Dict, List, Optional, Type, TypeVar, cast
 
 # 3rd party
 from cawdrey import frozendict  # nodep
-from typing_extensions import Literal  # nodep
 
 # this package
 from chemistry_tools.formulae.formula import Formula

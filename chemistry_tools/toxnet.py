@@ -55,8 +55,9 @@ def toxnet(cas: str) -> Dict[str, Any]:
 		input_tag = origin_soup.find("input", {"name": "dfield"})
 		assert input_tag is not None
 		a_tag = input_tag.find_next_sibling('a')
+		assert isinstance(a_tag, str)
 		assert a_tag is not None
-		data_url = a_tag["href"][:-4] + "cpp"  # type: ignore[index]
+		data_url = a_tag["href"][:-4] + "cpp"
 		# print(data_url)
 		data_page = requests.get(base_url + data_url)
 		data_soup = BeautifulSoup(data_page.text, "html.parser")

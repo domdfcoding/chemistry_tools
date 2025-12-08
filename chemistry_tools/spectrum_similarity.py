@@ -50,11 +50,15 @@ Mass spectrum similarity calculations.
 #
 
 # stdlib
-from typing import Mapping, Optional, Sequence, Tuple, Union
+from typing import TYPE_CHECKING, Mapping, Optional, Sequence, Tuple, Union
 
 # 3rd party
 import numpy
-import pandas  # type: ignore[import]
+import pandas  # type: ignore[import-untyped]
+
+if TYPE_CHECKING:
+	# 3rd party
+	from matplotlib.axes import Axes
 
 __all__ = ["spectrum_similarity", "normalize", "create_array", "SpectrumSimilarity"]
 
@@ -138,9 +142,14 @@ class SpectrumSimilarity:
 		# Unimplemented R code
 		# alignment <- alignment[alignment[,1] >= x.threshold, ]
 
-		similarity_score = self._calculate_score(self.alignment)
-		top_empty = not self.reverse_alignment["intensity_top"].any()
-		if top_empty or not self.reverse_alignment["intensity_bottom"].any():
+		top_empty = not self.alignment["intensity_top"].any()
+		if top_empty or not self.alignment["intensity_bottom"].any():
+			similarity_score = 0.0
+		else:
+			similarity_score = self._calculate_score(self.alignment)
+
+		top_reverse_empty = not self.reverse_alignment["intensity_top"].any()
+		if top_reverse_empty or not self.reverse_alignment["intensity_bottom"].any():
 			reverse_similarity_score = 0.0
 		else:
 			reverse_similarity_score = self._calculate_score(self.reverse_alignment)
@@ -152,7 +161,7 @@ class SpectrumSimilarity:
 			top_label: Optional[str] = None,
 			bottom_label: Optional[str] = None,
 			filter: bool = False,  # Whether peaks below b should be filtered  # noqa: A002  # pylint: disable=redefined-builtin
-			) -> None:
+			) -> "Axes":
 		"""
 		Plot the mass spectra head to tail.
 
@@ -161,7 +170,7 @@ class SpectrumSimilarity:
 		"""
 
 		# 3rd party
-		import matplotlib.pyplot as plt  # type: ignore[import]  # nodep
+		import matplotlib.pyplot as plt  # nodep
 
 		_, ax = plt.subplots()
 		# fig.scatter(top_plot["mz"],top_plot["intensity"], s=0)
@@ -181,8 +190,12 @@ class SpectrumSimilarity:
 
 		h_centre = self.xlim[0] + (self.xlim[1] - self.xlim[0]) // 2
 
-		ax.text(h_centre, 110, top_label, horizontalalignment="center", verticalalignment="center")
-		ax.text(h_centre, -110, bottom_label, horizontalalignment="center", verticalalignment="center")
+		if top_label:
+			ax.text(h_centre, 110, top_label, horizontalalignment="center", verticalalignment="center")
+
+		if bottom_label:
+			ax.text(h_centre, -110, bottom_label, horizontalalignment="center", verticalalignment="center")
+
 		return ax
 
 		# Unimplemented R code
@@ -379,8 +392,12 @@ def spectrum_similarity(
 
 		h_centre = xlim[0] + (xlim[1] - xlim[0]) // 2
 
-		ax.text(h_centre, 110, top_label, horizontalalignment="center", verticalalignment="center")
-		ax.text(h_centre, -110, bottom_label, horizontalalignment="center", verticalalignment="center")
+		if top_label:
+			ax.text(h_centre, 110, top_label, horizontalalignment="center", verticalalignment="center")
+
+		if bottom_label:
+			ax.text(h_centre, -110, bottom_label, horizontalalignment="center", verticalalignment="center")
+
 		plt.show()
 
 	# Unimplemented R code

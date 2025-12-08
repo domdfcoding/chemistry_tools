@@ -53,8 +53,8 @@ from typing import Tuple, Union
 
 # 3rd party
 import numpy
-import quantities  # type: ignore[import]
-import quantities.markup  # type: ignore[import]
+import quantities  # type: ignore[import-untyped]
+import quantities.markup  # type: ignore[import-untyped]
 
 __all__ = [
 		"as_latex",

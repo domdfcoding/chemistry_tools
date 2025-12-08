@@ -167,7 +167,7 @@ for elem in element_re:
 	isotopes_re.append(rf"\[[0-9]+{elem}\]")
 
 
-@lru_cache()
+@lru_cache
 def _get_formula_parser() -> pyparsing.Forward:
 	"""
 	Create a forward pyparsing parser for chemical formulae.

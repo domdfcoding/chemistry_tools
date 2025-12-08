@@ -51,7 +51,7 @@ from typing import Any, Dict, FrozenSet, List, Optional, Sequence, Type, TypeVar
 # 3rd party
 from domdf_python_tools.bases import Dictable
 from domdf_python_tools.doctools import prettify_docstrings
-from pandas import DataFrame, Series  # type: ignore[import]
+from pandas import DataFrame, Series  # type: ignore[import-untyped]
 
 # this package
 from chemistry_tools._memoized_property import memoized_property
@@ -88,7 +88,7 @@ class Compound(Dictable):
 	"""
 
 	def __init__(self, title: str, CID: int, description: str, **_):
-		super().__init__()
+		# super().__init__()
 
 		self.title: str = str(title)
 		self.CID: int = int(CID)
@@ -103,7 +103,7 @@ class Compound(Dictable):
 		self._has_full_record: bool = False
 
 	@property
-	def __dict__(self):  # noqa: MAN002
+	def __dict__(self):  # type: ignore[override]  # noqa: MAN002
 		return dict(
 				title=self.title,
 				CID=self.CID,

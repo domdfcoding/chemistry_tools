@@ -853,6 +853,7 @@ def test_SpectrumSimilarity_no_overlap():
 					107,
 					123,
 					124,
+					252,
 					],
 			intensities=[
 					13.113113,
@@ -869,6 +870,7 @@ def test_SpectrumSimilarity_no_overlap():
 					1.001001,
 					52.652653,
 					3.803804,
+					0.00001,
 					]
 			)
 

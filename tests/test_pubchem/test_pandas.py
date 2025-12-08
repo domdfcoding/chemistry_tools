@@ -7,7 +7,7 @@ Test optional pandas functionality.
 """
 
 # 3rd party
-import pandas  # type: ignore[import]
+import pandas  # type: ignore[import-untyped]
 import pytest
 
 # this package

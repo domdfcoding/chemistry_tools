@@ -28,7 +28,7 @@ import re
 from typing import Any, Dict, List, Pattern, Sequence, Tuple
 
 # 3rd party
-from pandas import DataFrame  # type: ignore[import]
+from pandas import DataFrame  # type: ignore[import-untyped]
 
 # this package
 from chemistry_tools import cached_requests

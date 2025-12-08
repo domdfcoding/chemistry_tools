@@ -241,7 +241,7 @@ _hill_carbon_re = re.compile(r"(C(?:\[[0-9]+])?|\[[0-9]+C])")
 _hill_hydrogen_re = re.compile(r"(H(?:\[[0-9]+])?|\[[0-9]+H])")
 
 
-@lru_cache()
+@lru_cache
 def split_isotope(string: str) -> Tuple[str, int]:
 	"""
 	Returns the symbol and mass number for the isotope represented by ``string``.

@@ -77,7 +77,7 @@ Parse formulae into a Python object.
 from typing import Dict, Optional
 
 # 3rd party
-import quantities  # type: ignore[import]
+import quantities  # type: ignore[import-untyped]
 from domdf_python_tools.bases import Dictable
 from domdf_python_tools.doctools import prettify_docstrings
 
@@ -137,7 +137,7 @@ class Compound(Dictable):
 			html_name: Optional[str] = None,
 			):
 
-		super().__init__()
+		# super().__init__()
 
 		self.name: str = name
 
@@ -164,7 +164,7 @@ class Compound(Dictable):
 		self.data: Optional[Dict] = data or {}
 
 	@property
-	def __dict__(self):  # noqa: MAN002
+	def __dict__(self):  # type: ignore[override]  # noqa: MAN002
 		return dict(
 				name=self.name,
 				latex_name=self.latex_name,

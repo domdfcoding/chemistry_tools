@@ -50,7 +50,7 @@ import warnings
 from typing import Any, Callable, Dict, Iterable, List, NamedTuple, Optional, Sequence, Union
 
 # 3rd party
-from pandas import DataFrame  # type: ignore[import]
+from pandas import DataFrame  # type: ignore[import-untyped]
 
 # this package
 from chemistry_tools.formulae import Formula
