@@ -21,13 +21,21 @@ additional_ignore:
 
 # Versions to run tests for
 python_versions:
- - 3.8
- - 3.9
- - "3.10"
- - "3.11"
- - "3.12"
- - pypy38
- - pypy39
+ 3.8:
+ 3.9:
+ "3.10":
+ "3.11":
+ "3.12":
+ pypy38:
+  platforms:
+    # Can't compile contourpy on macOS
+    - Linux
+    - Windows
+ pypy39:
+  platforms:
+    # No zlib to build pillow on Windows
+    - Linux
+    - macOS
 
 # additional lines for MANIFEST.in
 manifest_additional:
