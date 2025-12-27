@@ -536,13 +536,13 @@ class PubChemProperty(__BasePubChemProperty):
 	__slots__: List[str] = []
 
 	def __new__(  # noqa: D102
-			cls,
-			label: str,
-			name: Optional[str] = None,
-			value: Any = None,
-			dtype: Optional[Callable] = None,
-			source: Optional[Dict] = None,
-			):
+		cls,
+		label: str,
+		name: Optional[str] = None,
+		value: Any = None,
+		dtype: Optional[Callable] = None,
+		source: Optional[Dict] = None,
+		):
 		if source is None:
 			source = {}
 
