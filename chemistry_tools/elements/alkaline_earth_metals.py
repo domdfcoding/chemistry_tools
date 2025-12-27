@@ -158,7 +158,7 @@ Be = Element(
 				"and can cause severe lung diseases and dermatitis. Shows high "
 				"covalent character. It was isolated independently by F. Wohler and "
 				"A.A. Bussy in 1828."
-				)
+				),
 		)
 
 Mg = Element(
@@ -225,7 +225,7 @@ Mg = Element(
 				"reactive, it forms a protective oxide coating when exposed to air "
 				"and burns with an intense white flame. It also reacts with sulphur, "
 				"nitrogen and the halogens. First isolated by Bussy in 1828."
-				)
+				),
 		)
 
 Ca = Element(
@@ -299,7 +299,7 @@ Ca = Element(
 				"Soft grey metallic element belonging to group 2 of the periodic "
 				"table. Used a reducing agent in the extraction of thorium, "
 				"zirconium and uranium. Essential element for living organisms."
-				)
+				),
 		)
 
 Sr = Element(
@@ -374,7 +374,7 @@ Sr = Element(
 				"periodic table. Highly reactive chemically. Sr-90 is present in "
 				"radioactive fallout and has a half-life of 28 years. Discovered in "
 				"1798 by Klaproth and Hope, isolated in 1808 by Humphry Davy."
-				)
+				),
 		)
 
 Ba = Element(
@@ -507,5 +507,5 @@ Ra = Element(
 				"the periodic table. Most stable isotope, Ra-226 has a half-life of "
 				"1602 years, which decays into radon. Isolated from pitchblende in "
 				"1898 Marie and Pierre Curie."
-				)
+				),
 		)

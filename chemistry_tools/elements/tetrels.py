@@ -170,7 +170,7 @@ C = Element(
 				"organic life and is the basis of organic chemistry. Carbon has the "
 				"interesting chemical property of being able to bond with itself, "
 				"and a wide variety of other elements."
-				)
+				),
 		)
 
 Si = Element(
@@ -239,7 +239,7 @@ Si = Element(
 				"25.7% of it by weight. Chemically less reactive than carbon. First "
 				"identified by Lavoisier in 1787 and first isolated in 1823 by "
 				"Berzelius."
-				)
+				),
 		)
 
 Ge = Element(
@@ -301,7 +301,7 @@ Ge = Element(
 				"periodic table. Forms a large number of organometallic compounds. "
 				"Predicted by Mendeleev in 1871, it was actually found in 1886 by "
 				"Winkler."
-				)
+				),
 		)
 
 Sn = Element(
@@ -370,7 +370,7 @@ Sn = Element(
 				"periodic table. Twenty-six isotopes are known, five of which are "
 				"radioactive. Chemically reactive. Combines directly with chlorine "
 				"and oxygen and displaces hydrogen from dilute acids."
-				)
+				),
 		)
 
 Pb = Element(
@@ -438,7 +438,7 @@ Pb = Element(
 				"Used in building construction, lead-place accumulators, bullets and "
 				"shot, and is part of solder, pewter, bearing metals, type metals "
 				"and fusible alloys."
-				)
+				),
 		)
 
 Fl = Element(
@@ -455,5 +455,5 @@ Fl = Element(
 				287: (287.1856, 0.0),
 				288: (288.18569, 0.0),
 				289: (289.18728, 0.0),
-				}
+				},
 		)

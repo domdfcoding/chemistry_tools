@@ -152,14 +152,15 @@ class Species(Formula):
 			*,
 			charge: int = 0,
 			phase: Optional[Literal['s', 'l', 'g', "aq"]] = None,
-			**kwargs
+			**kwargs,
 			) -> S:
-		"""
+		r"""
 		Create a new :class:`~chemistry_tools.formulae.species.Species` object from keyword
 		arguments representing the elements in the compound.
 
 		:param charge: The charge of the compound
 		:param phase: The phase of the compound (e.g. ``'s'`` for solid)
+		:param \*\*kwargs:
 		"""  # noqa: D400
 
 		return cls(kwargs, charge=charge, phase=phase)
@@ -177,8 +178,8 @@ class Species(Formula):
 		.. note:: Isotopes cannot (currently) be parsed using this method
 
 		:param formula: A string with a chemical formula
-		:param phase: Either ``'s'``, ``'l'``, ``'g'``, or ``'aq'``. :py:obj:`None` represents an unknown phase.
 		:param charge:
+		:param phase: Either ``'s'``, ``'l'``, ``'g'``, or ``'aq'``. :py:obj:`None` represents an unknown phase.
 
 		:rtype:
 
@@ -227,7 +228,7 @@ class Species(Formula):
 				phase=cast(Optional[Literal['s', 'l', 'g', "aq"]], self.phase),
 				)
 
-	def __eq__(self, other) -> bool:  # noqa: MAN001
+	def __eq__(self, other) -> bool:  # noqa: MAN001,PRM002
 		"""
 		Returns ``self == other``.
 		"""

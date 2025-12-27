@@ -31,14 +31,14 @@ from chemistry_tools.pubchem.enums import PubChemNamespace
 from chemistry_tools.pubchem.properties import rest_get_properties_json
 from chemistry_tools.pubchem.pug_rest import do_rest_get
 
-__all__ = [
+__all__ = (
 		"get_iupac_name",
 		"get_description",
 		"get_common_name",
 		"get_compound_id",
 		"rest_get_description",
-		"parse_description"
-		]
+		"parse_description",
+		)
 
 
 def get_iupac_name(name: str) -> str:
@@ -94,14 +94,14 @@ def rest_get_description(
 		namespace: Union[PubChemNamespace, str] = PubChemNamespace.name,
 		**kwargs,
 		) -> Dict[str, Any]:
-	"""
+	r"""
 	Obtains the description for the given compound from the PubChem REST API.
 
 	:param identifier: Identifiers (e.g. name, CID) for the compound to look up.
 		When using the CID namespace data for multiple compounds can be retrieved at once by
 		supplying either a comma-separated string or a list.
 	:param namespace: The type of identifier to look up. Valid values are in :class:`~.PubChemNamespace`.
-	:param kwargs: Optional arguments that ``json.loads`` takes.
+	:param \*\*kwargs: Optional arguments that ``json.loads`` takes.
 
 	:raises ValueError: If the response body does not contain valid JSON.
 

@@ -70,7 +70,7 @@ def test_spectrum_similarity():
 					168,
 					169,
 					170,
-					171
+					171,
 					],
 			intensities=[
 					138,
@@ -138,7 +138,7 @@ def test_spectrum_similarity():
 					6825,
 					9999,
 					1210,
-					85
+					85,
 					]
 			)
 
@@ -259,7 +259,7 @@ def test_spectrum_similarity():
 					267,
 					268,
 					269,
-					270
+					270,
 					],
 			intensities=[
 					10,
@@ -377,7 +377,7 @@ def test_spectrum_similarity():
 					290,
 					2940,
 					590,
-					60
+					60,
 					]
 			)
 
@@ -453,7 +453,7 @@ def test_SpectrumSimilarity_class():
 					168,
 					169,
 					170,
-					171
+					171,
 					],
 			intensities=[
 					138,
@@ -521,7 +521,7 @@ def test_SpectrumSimilarity_class():
 					6825,
 					9999,
 					1210,
-					85
+					85,
 					]
 			)
 
@@ -642,7 +642,7 @@ def test_SpectrumSimilarity_class():
 					267,
 					268,
 					269,
-					270
+					270,
 					],
 			intensities=[
 					10,
@@ -760,7 +760,7 @@ def test_SpectrumSimilarity_class():
 					290,
 					2940,
 					590,
-					60
+					60,
 					]
 			)
 

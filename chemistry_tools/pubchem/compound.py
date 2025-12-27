@@ -74,7 +74,7 @@ C = TypeVar('C', bound="Compound")
 
 
 @prettify_docstrings
-class Compound(Dictable):
+class Compound(Dictable):  # noqa: PRM002
 	"""
 	Represents a single record from the PubChem Compound database.
 
@@ -352,6 +352,9 @@ class Compound(Dictable):
 	def from_cid(cls: Type['C'], cid: Union[str, int], record_type: str = "2d") -> "Compound":
 		"""
 		Returns the Compound objects for the compound with the given CID.
+
+		:param cid:
+		:param record_type:
 		"""
 
 		# this package

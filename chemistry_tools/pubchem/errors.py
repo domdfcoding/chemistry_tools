@@ -116,6 +116,8 @@ class ResponseParseError(Exception):
 class PubChemHTTPError(Exception):
 	"""
 	Generic error class to handle all HTTP error codes.
+
+	:param e: The error from ``requests``.
 	"""
 
 	def __init__(self, e: requests.Response):
@@ -145,6 +147,8 @@ class PubChemHTTPError(Exception):
 class BadRequestError(PubChemHTTPError):
 	"""
 	Request is improperly formed (syntax error in the URL, POST body, etc.).
+
+	:param msg: The error message.
 	"""
 
 	def __init__(self, msg: str = "Request is improperly formed"):
@@ -154,6 +158,8 @@ class BadRequestError(PubChemHTTPError):
 class NotFoundError(PubChemHTTPError):
 	"""
 	The input record was not found (e.g. invalid CID).
+
+	:param msg: The error message.
 	"""
 
 	def __init__(self, msg: str = "The input record was not found"):
@@ -163,6 +169,8 @@ class NotFoundError(PubChemHTTPError):
 class MethodNotAllowedError(PubChemHTTPError):
 	"""
 	Request not allowed (such as invalid MIME type in the HTTP Accept header).
+
+	:param msg: The error message.
 	"""
 
 	def __init__(self, msg: str = "Request not allowed"):
@@ -174,6 +182,8 @@ class HTTPTimeoutError(PubChemHTTPError):
 	The request timed out, from server overload or too broad a request.
 
 	.. versionchanged:: 0.4.0  Renamed from TimeoutErrpr
+
+	:param msg: The error message.
 	"""
 
 	def __init__(self, msg: str = "The request timed out"):
@@ -186,6 +196,8 @@ TimeoutError = HTTPTimeoutError  # noqa: A001  # pylint: disable=redefined-built
 class UnimplementedError(PubChemHTTPError):
 	"""
 	The requested operation has not (yet) been implemented by the server.
+
+	:param msg: The error message.
 	"""
 
 	def __init__(self, msg: str = "The requested operation has not been implemented"):
@@ -195,6 +207,8 @@ class UnimplementedError(PubChemHTTPError):
 class ServerError(PubChemHTTPError):
 	"""
 	Some problem on the server side (such as a database server down, etc.).
+
+	:param msg: The error message.
 	"""
 
 	def __init__(self, msg: str = "Some problem on the server side"):

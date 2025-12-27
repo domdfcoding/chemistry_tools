@@ -173,7 +173,7 @@ N = Element(
 				"Chemically inactive, reactive generally only at high temperatures "
 				"or in electrical discharges. It was discovered in 1772 by D. "
 				"Rutherford."
-				)
+				),
 		)
 
 P = Element(
@@ -241,7 +241,7 @@ P = Element(
 				"Non-metallic element belonging to group 15 of the periodic table. "
 				"Has a multiple allotropic forms. Essential element for living "
 				"organisms. It was discovered by Brandt in 1669."
-				)
+				),
 		)
 
 As = Element(
@@ -311,7 +311,7 @@ As = Element(
 				"black, and grey. Reacts with halogens, concentrated oxidizing acids "
 				"and hot alkalis. Albertus Magnus is believed to have been the first "
 				"to isolate the element in 1250."
-				)
+				),
 		)
 
 Sb = Element(
@@ -386,7 +386,7 @@ Sb = Element(
 				"unstable non-metals. Used in flame-proofing, paints, ceramics, "
 				"enamels, and rubber. Attacked by oxidizing acids and halogens. "
 				"First reported by Tholden in 1450."
-				)
+				),
 		)
 
 Bi = Element(
@@ -460,7 +460,7 @@ Bi = Element(
 				"compounds are used in cosmetics and medical procedures. Burns in "
 				"the air and produces a blue flame. In 1753, C.G. Junine first "
 				"demonstrated that it was different from lead."
-				)
+				),
 		)
 
 Mc = Element(
@@ -477,5 +477,5 @@ Mc = Element(
 				289: (289.19272, 0.0),
 				290: (290.19414, 0.0),
 				291: (291.19438, 0.0),
-				}
+				},
 		)

@@ -148,7 +148,8 @@ def test_compare_equality():
 def test_format_string():
 	assert units.format_string(3 * quantities.gram / quantities.metre**2) == ('3', "g/m**2")
 	assert units.format_string(
-			3 * quantities.gram / quantities.metre**2, tex=True
+			3 * quantities.gram / quantities.metre**2,
+			tex=True,
 			) == ('3', r"\mathrm{\frac{g}{m^{2}}}")
 
 

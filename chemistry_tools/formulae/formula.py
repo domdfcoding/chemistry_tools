@@ -341,11 +341,12 @@ class Formula(defaultdict, Counter):
 
 	@classmethod
 	def from_kwargs(cls: Type['F'], *, charge: int = 0, **kwargs) -> F:
-		"""
+		r"""
 		Create a new :class:`~chemistry_tools.formulae.formula.Formula` object from
 		keyword arguments representing the elements in the compound.
 
 		:param charge:
+		:param \*\*kwargs:
 
 		:rtype:
 
@@ -505,7 +506,7 @@ class Formula(defaultdict, Counter):
 				# Take the two most abundant isotopes.
 				first_iso, second_iso = sorted(
 					[(i[0], i[1][1]) for i in isotope_data[element_name].items() if i[0]],
-					key=lambda x: -x[1]
+					key=lambda x: -x[1],
 					)[:2]
 
 				# Write the number of isotopes of the most abundant type.

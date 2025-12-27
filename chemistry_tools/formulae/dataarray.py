@@ -80,7 +80,7 @@ class DataArray(FrozenOrderedDict):
 		:param reverse:
 		"""
 
-	def as_dataframe(self, *args, **kwargs) -> pandas.DataFrame:
+	def as_dataframe(self, *args, **kwargs) -> pandas.DataFrame:  # noqa: PRM002
 		"""
 		Returns the isotope distribution data as a :class:`pandas.DataFrame`.
 
@@ -90,7 +90,7 @@ class DataArray(FrozenOrderedDict):
 		array = self.as_array(*args, **kwargs)
 		return pandas.DataFrame.from_records(array[1:], columns=array[0])
 
-	def as_table(self, *args, **kwargs) -> str:
+	def as_table(self, *args, **kwargs) -> str:  # noqa: PRM002
 		"""
 		Returns the isotope distribution data as a table using
 		`tabulate <https://github.com/astanin/python-tabulate>`_.

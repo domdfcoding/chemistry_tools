@@ -226,7 +226,7 @@ La = Element(
 				"lanthanoids chemically. Lanthanum has a low to moderate level of "
 				"toxicity, and should be handled with care. Discovered in 1839 by "
 				"C.G. Mosander."
-				)
+				),
 		)
 
 Ce = Element(
@@ -296,7 +296,7 @@ Ce = Element(
 				"identified. Used in some rare-earth alloys. The oxidized form is "
 				"used in the glass industry. Discovered by Martin .H. Klaproth in "
 				"1803."
-				)
+				),
 		)
 
 Pr = Element(
@@ -365,7 +365,7 @@ Pr = Element(
 				"natural isotope is Pr-141 which is not radioactive. Fourteen "
 				"radioactive isotopes have been artificially produced. Used in "
 				"rare-earth alloys. Discovered in 1885 by C.A. von Welsbach."
-				)
+				),
 		)
 
 Nd = Element(
@@ -444,7 +444,7 @@ Nd = Element(
 				"Neodymium should be considered highly toxic, however evidence would "
 				"seem to show that it acts as little more than a skin and eye "
 				"irritant. The dust however, presents a fire and explosion hazard."
-				)
+				),
 		)
 
 Pm = Element(
@@ -516,7 +516,7 @@ Pm = Element(
 				"be removed from it first, as they generate gamma radiation. "
 				"Discovered by J.A. Marinsky, L.E. Glendenin and C.D. Coryell in "
 				"1947."
-				)
+				),
 		)
 
 Sm = Element(
@@ -589,7 +589,7 @@ Sm = Element(
 				"ferromagnetic alloy which produces permanent magnets that are five "
 				"times stronger than magnets produced by any other material. "
 				"Discovered by Francois Lecoq de Boisbaudran in 1879."
-				)
+				),
 		)
 
 Eu = Element(
@@ -656,7 +656,7 @@ Eu = Element(
 				"Soft silvery metallic element belonging to the lanthanoids. Eu-151 "
 				"and Eu-153 are the only two stable isotopes, both of which are "
 				"Neutron absorbers. Discovered in 1889 by Sir William Crookes."
-				)
+				),
 		)
 
 Gd = Element(
@@ -723,7 +723,7 @@ Gd = Element(
 				"isotopes. Gd-155 and Gd-157 and the best neutron absorbers of all "
 				"elements. Gadolinium compounds are used in electronics. Discovered "
 				"by J.C.G Marignac in 1880."
-				)
+				),
 		)
 
 Tb = Element(
@@ -788,7 +788,7 @@ Tb = Element(
 				"Silvery metallic element belonging to the lanthanoids. Tb-159 is "
 				"the only stable isotope, there are seventeen artificial isotopes. "
 				"Discovered by G.G. Mosander in 1843."
-				)
+				),
 		)
 
 Dy = Element(
@@ -860,7 +860,7 @@ Dy = Element(
 				"compact disks. It was discovered by Paul Emile Lecoq de Boisbaudran "
 				"in 1886 in France. Its name comes from the Greek word dysprositos, "
 				"which means hard to obtain."
-				)
+				),
 		)
 
 Ho = Element(
@@ -935,7 +935,7 @@ Ho = Element(
 				"Sweden. While all holmium compounds should be considered highly "
 				"toxic, initial evidence seems to indicate that they do not pose "
 				"much danger. The metal's dust however, is a fire hazard."
-				)
+				),
 		)
 
 Er = Element(
@@ -1001,7 +1001,7 @@ Er = Element(
 				"are known. Used in nuclear technology as a neutron absorber. It is "
 				"being investigated for other possible uses. Discovered by Carl G. "
 				"Mosander in 1843."
-				)
+				),
 		)
 
 Tm = Element(
@@ -1066,7 +1066,7 @@ Tm = Element(
 				"natural isotope exists, Tm-169, and seventeen artificial isotopes "
 				"have been produced. No known uses for the element. Discovered in "
 				"1879 by Per Theodor Cleve."
-				)
+				),
 		)
 
 Yb = Element(
@@ -1129,7 +1129,7 @@ Yb = Element(
 				"Silvery metallic element of the lanthanoids. Seven natural "
 				"isotopes and ten artificial isotopes are known. Used in certain "
 				"steels. Discovered by J.D.G. Marignac in 1878."
-				)
+				),
 		)
 
 Lu = Element(
@@ -1201,5 +1201,5 @@ Lu = Element(
 				"Georges Urbain in 1907. It was discovered at approximately the same "
 				"time by Carl Auer von Welsbach. The name comes from the Greek word "
 				"lutetia which means Paris."
-				)
+				),
 		)

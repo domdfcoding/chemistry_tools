@@ -167,6 +167,7 @@ class SpectrumSimilarity:
 
 		:param top_label: string to label the top spectrum.
 		:param bottom_label: string to label the bottom spectrum.
+		:param filter:
 		"""
 
 		# 3rd party

@@ -176,7 +176,7 @@ F = Element(
 				"causing severe chemical burns on contact with flesh. Fluorine was "
 				"identified by Scheele in 1771 and first isolated by Moissan in "
 				"1886."
-				)
+				),
 		)
 
 Cl = Element(
@@ -248,7 +248,7 @@ Cl = Element(
 				"nature as sodium chloride in seawater. Reacts directly with many "
 				"elements and compounds, strong oxidizing agent. Discovered by Karl "
 				"Scheele in 1774. Humphrey David confirmed it as an element in 1810."
-				)
+				),
 		)
 
 Br = Element(
@@ -318,7 +318,7 @@ Br = Element(
 				"reactivity is somewhere between chlorine and iodine. Harmful to "
 				"human tissue in a liquid state, the vapour irritates eyes and "
 				"throat. Discovered in 1826 by Antoine Balard."
-				)
+				),
 		)
 
 I = Element(
@@ -387,7 +387,7 @@ I = Element(
 				"fourteen radioactive isotopes. Chemically the least reactive of the "
 				"halogens, and the most electropositive metallic halogen. Discovered "
 				"in 1812 by Courtois."
-				)
+				),
 		)
 
 At = Element(
@@ -449,7 +449,7 @@ At = Element(
 				"has a half-life of 8.3 hours. Synthesized by nuclear bombardment in "
 				"1940 by D.R. Corson, K.R. MacKenzie and E. Segre at the University "
 				"of California."
-				)
+				),
 		)
 
 Ts = Element(
@@ -463,5 +463,5 @@ Ts = Element(
 		isotopes={
 				291: (291.20656, 0.0),
 				292: (292.20755, 0.0),
-				}
+				},
 		)

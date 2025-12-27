@@ -106,7 +106,7 @@ H = classes.Element(
 				"abundant element in the universe. Present in water and in all "
 				"organic compounds. Chemically reacts with most elements. Discovered "
 				"by Henry Cavendish in 1776."
-				)
+				),
 		)
 
 D = classes.HeavyHydrogen(

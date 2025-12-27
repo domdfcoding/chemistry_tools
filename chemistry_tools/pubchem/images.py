@@ -41,7 +41,7 @@ def get_structure_image(
 		identifier: Union[str, int, Sequence[Union[str, int]]],
 		namespace: Union[PubChemNamespace, str] = PubChemNamespace.name,
 		width: int = 300,
-		height: int = 300
+		height: int = 300,
 		) -> Image.Image:
 	"""
 	Returns an image of the structure of the compound with the given name.

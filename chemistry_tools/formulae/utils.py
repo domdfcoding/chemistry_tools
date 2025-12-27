@@ -289,6 +289,8 @@ def hill_order(symbols: Sequence[str]) -> Iterator[str]:
 
 		>>> for i in hill_order("H", "C[12]", "O"): print(i, end='')
 		CHO
+
+	:param symbols:
 	"""
 
 	symbols_list: List[str] = list(set(symbols))

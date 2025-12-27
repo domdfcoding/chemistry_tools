@@ -193,7 +193,7 @@ class Element(Dictable):
 				oxistates=self._oxistates,
 				ionenergy=self._ionenergy,
 				isotopes=self._isotopes,
-				description=self._description
+				description=self._description,
 				)
 
 	@memoized_property
@@ -438,7 +438,7 @@ class Element(Dictable):
 				f"eleconfig='{self.eleconfig}'",
 				f"oxistates='{self.oxistates}'",
 				f"ionenergy={ionenergy}",
-				f"isotopes={isotopes}\n)"
+				f"isotopes={isotopes}\n)",
 				))
 
 	@memoized_property
@@ -533,10 +533,7 @@ class Element(Dictable):
 			frac += iso.abundance
 
 		if abs(mass - self.mass) > 0.03:
-			raise ValueError(
-					f"{self.symbol} - average of isotope masses "
-					f"({mass:.4f}) != mass ({self.mass:.4f})"
-					)
+			raise ValueError(f"{self.symbol} - average of isotope masses ({mass:.4f}) != mass ({self.mass:.4f})")
 
 		if abs(frac - 1.0) > 1e-9:
 			raise ValueError(f"{self.symbol} - sum of isotope abundances != 1.0")
@@ -749,7 +746,7 @@ class Elements(Iterable[Element]):
 
 
 @doctools.append_docstring_from(Element)
-class HeavyHydrogen(Element):
+class HeavyHydrogen(Element):  # noqa: PRM002
 	"""
 	Subclass of :class:`~.Element` to handle the Heavy Hydrogen isotopes Deuterium and Tritium.
 	"""

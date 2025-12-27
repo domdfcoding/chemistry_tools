@@ -90,7 +90,7 @@ class IsotopeDistribution(DataArray):
 			self,
 			sort_by: Union[int, IsoDistSort] = IsoDistSort.formula,
 			reverse: bool = False,
-			format_percentage: bool = True
+			format_percentage: bool = True,
 			) -> List[List[Any]]:
 		"""
 		Returns the isotope distribution data as a list of lists.

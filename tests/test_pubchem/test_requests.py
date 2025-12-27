@@ -51,7 +51,9 @@ def test_content_type():
 	"""
 
 	assert do_rest_get(
-			identifier=241, namespace="cid", format_="JSON"
+			identifier=241,
+			namespace="cid",
+			format_="JSON",
 			).headers["Content-Type"] == "application/json"
 	assert do_rest_get(identifier=241, namespace="cid", format_="XML").headers["Content-Type"] == "application/xml"
 	# assert do_rest_get(identifier=241, namespace="cid", format_='SDF').headers['Content-Type'] == 'chemical/x-mdl-sdfile'

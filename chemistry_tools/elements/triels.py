@@ -163,7 +163,7 @@ B = Element(
 				"Boron-10 is used in nuclear reactor control rods and shields. It "
 				"was discovered in 1808 by Sir Humphry Davy and by J.L. Gay-Lussac "
 				"and L.J. Thenard."
-				)
+				),
 		)
 
 Al = Element(
@@ -231,7 +231,7 @@ Al = Element(
 				"aluminum, as well as a good number of industrial uses. Makes up "
 				"8.1% of the Earth's crust, by weight. Isolated in 1825 by H.C. "
 				"Oersted."
-				)
+				),
 		)
 
 Ga = Element(
@@ -294,7 +294,7 @@ Ga = Element(
 				"Gallium Arsenide is used as a semiconductor. Corrodes most other "
 				"metals by diffusing into their lattice. First identified by "
 				"Francois Lecoq de Boisbaudran in 1875."
-				)
+				),
 		)
 
 In = Element(
@@ -363,7 +363,7 @@ In = Element(
 				"The most common natural isotope is In-115, which has a half-life of "
 				"6*10^4 years. Five other radioisotopes exist. Discovered in 1863 by "
 				"Reich and Richter."
-				)
+				),
 		)
 
 Tl = Element(
@@ -437,7 +437,7 @@ Tl = Element(
 				"William Crookes via spectroscopy. Its name comes from the Greek "
 				"word thallos, which means green twig. Thallium and its compounds "
 				"are toxic and can cause cancer."
-				)
+				),
 		)
 
 Nh = Element(
@@ -454,5 +454,5 @@ Nh = Element(
 				285: (285.17873, 0.0),
 				286: (286.18048, 0.0),
 				287: (287.18105, 0.0),
-				}
+				},
 		)

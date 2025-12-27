@@ -354,7 +354,7 @@ Sc = Element(
 				"periodic table. There are ten isotopes, nine of which are "
 				"radioactive and have short half-lives. Predicted in 1869 by "
 				"Mendeleev, isolated by Nilson in 1879."
-				)
+				),
 		)
 
 Ti = Element(
@@ -425,7 +425,7 @@ Ti = Element(
 				"Used in strong, light corrosion-resistant alloys. Forms a passive "
 				"oxide coating when exposed to air. First discovered by Gregor in "
 				"1789."
-				)
+				),
 		)
 
 V = Element(
@@ -508,7 +508,7 @@ V = Element(
 				"essential to Ascidians. Rats and chickens are also known to require "
 				"it. Metal powder is a fire hazard, and vanadium compounds should be "
 				"considered highly toxic. May cause lung cancer if inhaled."
-				)
+				),
 		)
 
 Cr = Element(
@@ -578,7 +578,7 @@ Cr = Element(
 		description=(
 				"Hard silvery transition element. Used in decorative "
 				"electroplating. Discovered in 1797 by Vauquelin."
-				)
+				),
 		)
 
 Mn = Element(
@@ -650,7 +650,7 @@ Mn = Element(
 				"Grey brittle metallic transition element. Rather electropositive, "
 				"combines with some non-metals when heated. Discovered in 1774 by "
 				"Scheele."
-				)
+				),
 		)
 
 Fe = Element(
@@ -728,7 +728,7 @@ Fe = Element(
 				"(used in hemoglobin in humans.) Quite reactive, oxidizes in moist "
 				"air, displaces hydrogen from dilute acids and combines with "
 				"nonmetallic elements."
-				)
+				),
 		)
 
 Co = Element(
@@ -807,7 +807,7 @@ Co = Element(
 				"require small amounts of cobalt salts. Cobalt-60, an artificially "
 				"produced radioactive isotope of Cobalt is an important radioactive "
 				"tracer and cancer-treatment agent. Discovered by G. Brandt in 1737."
-				)
+				),
 		)
 
 Ni = Element(
@@ -886,7 +886,7 @@ Ni = Element(
 		description=(
 				"Malleable ductile silvery metallic transition element. Discovered "
 				"by A.F. Cronstedt in 1751."
-				)
+				),
 		)
 
 Cu = Element(
@@ -966,7 +966,7 @@ Cu = Element(
 				"Extracted and used for thousands of years. Malleable, ductile and "
 				"an excellent conductor of heat and electricity. When in moist "
 				"conditions, a greenish layer forms on the outside."
-				)
+				),
 		)
 
 Zn = Element(
@@ -1048,7 +1048,7 @@ Zn = Element(
 				"naturally. Five stable isotopes are six radioactive isotopes have "
 				"been found. Chemically a reactive metal, combines with oxygen and "
 				"other non-metals, reacts with dilute acids to release hydrogen."
-				)
+				),
 		)
 
 Y = Element(
@@ -1125,7 +1125,7 @@ Y = Element(
 				"14 other artificial isotopes. Chemically resembles the lanthanoids. "
 				"Stable in the air below 400 degrees, celsius. Discovered in 1828 by "
 				"Friedrich Wohler."
-				)
+				),
 		)
 
 Zr = Element(
@@ -1188,7 +1188,7 @@ Zr = Element(
 				"six radioactive isotopes are known. Used in nuclear reactors for a "
 				"Neutron absorber. Discovered in 1789 by Martin Klaproth, isolated "
 				"in 1824 by Berzelius."
-				)
+				),
 		)
 
 Nb = Element(
@@ -1260,7 +1260,7 @@ Nb = Element(
 				"with halogens and oxidizes in air at 200 degrees celsius. "
 				"Discovered by Charles Hatchett in 1801 and isolated by Blomstrand "
 				"in 1864. Called Columbium originally."
-				)
+				),
 		)
 
 Mo = Element(
@@ -1340,7 +1340,7 @@ Mo = Element(
 				"are required for all known forms of life. All molybdenum compounds "
 				"should be considered highly toxic, and will also cause severe birth "
 				"defects."
-				)
+				),
 		)
 
 Tc = Element(
@@ -1407,7 +1407,7 @@ Tc = Element(
 				"2.6*10^6 years. Sixteen isotopes are known. Organic technetium "
 				"compounds are used in bone imaging. Chemical properties are "
 				"intermediate between rhenium and manganese."
-				)
+				),
 		)
 
 Ru = Element(
@@ -1471,7 +1471,7 @@ Ru = Element(
 				"as a catalyst in some platinum alloys. Dissolves in fused alkalis, "
 				"and is not attacked by acids. Reacts with halogens and oxygen at "
 				"high temperatures. Isolated in 1844 by K.K. Klaus."
-				)
+				),
 		)
 
 Rh = Element(
@@ -1534,7 +1534,7 @@ Rh = Element(
 				"Silvery white metallic transition element. Found with platinum and "
 				"used in some platinum alloys. Not attacked by acids, dissolves only "
 				"in aqua regia. Discovered in 1803 by W.H. Wollaston."
-				)
+				),
 		)
 
 Pd = Element(
@@ -1665,7 +1665,7 @@ Ag = Element(
 				"White lustrous soft metallic transition element. Found in both its "
 				"elemental form and in minerals. Used in jewellery, tableware and so "
 				"on. Less reactive than silver, chemically."
-				)
+				),
 		)
 
 Cd = Element(
@@ -1733,7 +1733,7 @@ Cd = Element(
 				"Extremely toxic even in low concentrations. Chemically similar to "
 				"zinc, but lends itself to more complex compounds. Discovered in "
 				"1817 by F. Stromeyer."
-				)
+				),
 		)
 
 Hf = Element(
@@ -1799,7 +1799,7 @@ Hf = Element(
 				"alloys in filaments and electrodes, also acts as a neutron "
 				"absorber. First reported by Urbain in 1911, existence was finally "
 				"established in 1923 by D. Coster, G.C. de Hevesy in 1923."
-				)
+				),
 		)
 
 Ta = Element(
@@ -1866,7 +1866,7 @@ Ta = Element(
 				"excess of 10^7 years. Used in surgery as it is unreactive. Forms a "
 				"passive oxide layer in air. Identified in 1802 by Ekeberg and "
 				"isolated in 1820 by Jons J. Berzelius."
-				)
+				),
 		)
 
 W = Element(
@@ -1930,7 +1930,7 @@ W = Element(
 				"White or grey metallic transition element,formerly called Wolfram. "
 				"Forms a protective oxide in air and can be oxidized at high "
 				"temperature. First isolated by Jose and Fausto de Elhuyer in 1783."
-				)
+				),
 		)
 
 Re = Element(
@@ -1994,7 +1994,7 @@ Re = Element(
 				"Silvery-white metallic transition element. Obtained as a "
 				"by-product of molybdenum refinement. Rhenium-molybdenum alloys are "
 				"superconducting."
-				)
+				),
 		)
 
 Os = Element(
@@ -2057,7 +2057,7 @@ Os = Element(
 		description=(
 				"Hard blue-white metallic transition element. Found with platinum "
 				"and used in some alloys with platinum and iridium."
-				)
+				),
 		)
 
 Ir = Element(
@@ -2132,7 +2132,7 @@ Ir = Element(
 				"rainbow. Iridium metal is generally non-toxic due to its relative "
 				"unreactivity, but iridium compounds should be considered highly "
 				"toxic."
-				)
+				),
 		)
 
 Pt = Element(
@@ -2210,7 +2210,7 @@ Pt = Element(
 				"silver. Platinum metal is generally not a health concern due to its "
 				"unreactivity, however platinum compounds should be considered "
 				"highly toxic."
-				)
+				),
 		)
 
 Au = Element(
@@ -2283,7 +2283,7 @@ Au = Element(
 				"symbol, Au, comes from the Latin word aurum, which means gold. Gold "
 				"is not particularly toxic, however it is known to cause damage to "
 				"the liver and kidneys in some."
-				)
+				),
 		)
 
 Hg = Element(
@@ -2354,7 +2354,7 @@ Hg = Element(
 				"Less reactive than zinc and cadmium, does not displace hydrogen "
 				"from acids. Forms a number of complexes and organomercury "
 				"compounds."
-				)
+				),
 		)
 
 Rf = Element(
@@ -2401,7 +2401,7 @@ Rf = Element(
 				"discovered by the Joint Nuclear Research Institute at Dubna "
 				"(U.S.S.R.) in 1964. Researchers at Berkeley discovered Unq-257 and "
 				"Unq-258 in 1964."
-				)
+				),
 		)
 
 Db = Element(
@@ -2446,7 +2446,7 @@ Db = Element(
 				"Also known as Hahnium, Ha. Radioactive transactinide element. "
 				"Half-life of 1.6s. Discovered in 1970 by Berkeley researchers. So "
 				"far, seven isotopes have been discovered."
-				)
+				),
 		)
 
 Sg = Element(
@@ -2492,7 +2492,7 @@ Sg = Element(
 				"Nuclear Research at Dubna (U.S.S.R.) in June of 1974. Its existence "
 				"was confirmed by the Lawrence Berkeley Laboratory and Livermore "
 				"National Laboratory in September of 1974."
-				)
+				),
 		)
 
 Bh = Element(
@@ -2538,7 +2538,7 @@ Bh = Element(
 				"Discovered by the Joint Institute for Nuclear Research at Dubna "
 				"(U.S.S.R.) in 1976. Confirmed by West German physicists at the "
 				"Heavy Ion Research Laboratory at Darmstadt."
-				)
+				),
 		)
 
 Hs = Element(
@@ -2582,7 +2582,7 @@ Hs = Element(
 				"Radioactive transition metal first synthesized in 1984 by a German "
 				"research team led by Peter Armbruster and Gottfried Muenzenberg at "
 				"the Institute for Heavy Ion Research at Darmstadt."
-				)
+				),
 		)
 
 Mt = Element(
@@ -2628,7 +2628,7 @@ Mt = Element(
 				"new, heavy nuclei. Made and identified by physicists of the Heavy "
 				"Ion Research Laboratory, Darmstadt, West Germany in 1982. Named in "
 				"honor of Lise Meitner, the Austrian physicist."
-				)
+				),
 		)
 
 Ds = Element(
@@ -2655,7 +2655,7 @@ Ds = Element(
 				279: (279.15886, 0.0),
 				280: (280.1598, 0.0),
 				281: (281.16206, 0.0),
-				}
+				},
 		)
 
 Rg = Element(
@@ -2679,7 +2679,7 @@ Rg = Element(
 				281: (281.16537, 0.0),
 				282: (282.16749, 0.0),
 				283: (283.16842, 0.0),
-				}
+				},
 		)
 
 Cn = Element(
@@ -2700,5 +2700,5 @@ Cn = Element(
 				283: (283.17179, 0.0),
 				284: (284.17238, 0.0),
 				285: (285.17411, 0.0),
-				}
+				},
 		)

@@ -158,12 +158,12 @@ def get_full_json(cid: Union[str, int]) -> str:
 
 
 def async_get(
-		identifier,
+		identifier: Union[str, int, Sequence[str]],
 		namespace: Union[PubChemNamespace, str] = "cid",
-		operation=None,
-		output="JSON",
-		searchtype=None,
-		**kwargs
+		operation: Optional[str] = None,
+		output: str = "JSON",
+		searchtype: Optional[str] = None,
+		**kwargs,
 		) -> bytes:
 	r"""
 	Request wrapper that automatically handles asynchronous requests.
@@ -199,11 +199,11 @@ def async_get(
 
 
 def request(
-		identifier,
+		identifier: Union[str, int, Sequence[str]],
 		namespace: Union[PubChemNamespace, str] = "cid",
-		operation=None,
+		operation: Optional[str] = None,
 		output: Union[PubChemFormats, str] = "JSON",
-		searchtype=None,
+		searchtype: Optional[str] = None,
 		**kwargs,
 		) -> requests.Response:
 	r"""

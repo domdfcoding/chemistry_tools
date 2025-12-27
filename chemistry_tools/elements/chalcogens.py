@@ -176,7 +176,7 @@ O = Element(
 				"and in breathing. It commonly comes in the form of Oxygen, but is "
 				"found as Ozone in the upper atmosphere. It was discovered by "
 				"Priestley in 1774."
-				)
+				),
 		)
 
 S = Element(
@@ -247,7 +247,7 @@ S = Element(
 				"table. It is an essential element in living organisms, needed in "
 				"the amino acids cysteine and methionine, and hence in many "
 				"proteins. Absorbed by plants from the soil as sulphate ion."
-				)
+				),
 		)
 
 Se = Element(
@@ -314,7 +314,7 @@ Se = Element(
 				"Metalloid element, belongs to group 16 of the periodic table. "
 				"Multiple allotropic forms exist. Chemically resembles sulphur. "
 				"Discovered in 1817 by Jons J. Berzelius."
-				)
+				),
 		)
 
 Te = Element(
@@ -390,7 +390,7 @@ Te = Element(
 				"nine radioactive isotopes. Used in semiconductors and to a degree "
 				"in some steels. Chemistry is similar to Sulphur. Discovered in 1782 "
 				"by Franz Miller."
-				)
+				),
 		)
 
 Po = Element(
@@ -454,7 +454,7 @@ Po = Element(
 				"elements. Po-209 has a half-life of 103 years. Possible uses in "
 				"heating spacecraft. Discovered by Marie Curie in 1898 in a sample "
 				"of pitchblende."
-				)
+				),
 		)
 
 Lv = Element(
@@ -470,5 +470,5 @@ Lv = Element(
 				290: (290.19859, 0.0),
 				291: (291.20001, 0.0),
 				292: (292.19979, 0.0),
-				}
+				},
 		)

@@ -73,7 +73,7 @@ def parse_full_record(record: Dict) -> List[Dict]:
 						coords=compound["coords"],
 						properties=properties,
 						cid=cid,
-						counts=counts
+						counts=counts,
 						)
 				)
 
@@ -86,7 +86,7 @@ def rest_get_full_record(
 		record_type: str = "2d",
 		**kwargs,
 		) -> Dict:
-	"""
+	r"""
 	Obtains the full record for the given compound from the PubChem REST API.
 
 	:param identifier: Identifiers (e.g. name, CID) for the compound to look up.
@@ -94,7 +94,7 @@ def rest_get_full_record(
 		supplying either a comma-separated string or a list.
 	:param namespace: The type of identifier to look up. Valid values are in :class:`~.PubChemNamespace`.
 	:param record_type:
-	:param kwargs: Optional arguments that ``json.loads`` takes.
+	:param \*\*kwargs: Optional arguments that ``json.loads`` takes.
 
 	:raises ValueError: If the response body does not contain valid JSON.
 

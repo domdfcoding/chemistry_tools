@@ -90,7 +90,7 @@ class Bond:
 			aid1: int,
 			aid2: int,
 			order: Union[int, BondType] = BondType.SINGLE,
-			style=None,
+			style: Any = None,
 			):
 		self.aid1: int = aid1
 		self.aid2: int = aid2

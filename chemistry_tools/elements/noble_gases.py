@@ -159,7 +159,7 @@ He = Element(
 				"elements and can only be solidified under pressure. Chemically "
 				"inert, no known compounds. Discovered in the solar spectrum in 1868 "
 				"by Lockyer."
-				)
+				),
 		)
 
 Ne = Element(
@@ -221,7 +221,7 @@ Ne = Element(
 				"when used in discharge tubes and neon based lamps. It forms almost "
 				"no chemical compounds. Neon was discovered in 1898 by Sir William "
 				"Ramsey and M.W. Travers."
-				)
+				),
 		)
 
 Ar = Element(
@@ -293,7 +293,7 @@ Ar = Element(
 				"Monatomic noble gas. Makes up 0.93% of the air. Colourless, "
 				"odorless. Is inert and has no true compounds. Lord Rayleigh and Sir "
 				"william Ramsey identified argon in 1894."
-				)
+				),
 		)
 
 Kr = Element(
@@ -369,7 +369,7 @@ Kr = Element(
 				"isotope, has a half-life of 10.76 years and is produced in fission "
 				"reactors. Practically inert, though known to form compounds with "
 				"Fluorine."
-				)
+				),
 		)
 
 Xe = Element(
@@ -439,7 +439,7 @@ Xe = Element(
 				"noble-gas compound synthesized. Several others involving Xenon have "
 				"been found since then. Xenon was discovered by Ramsey and Travers "
 				"in 1898."
-				)
+				),
 		)
 
 Rn = Element(

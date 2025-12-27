@@ -217,7 +217,7 @@ Ac = Element(
 				"There are 22 other artificial isotopes, all radioactive and having "
 				"very short half-lives. Chemistry similar to lanthanumpy. Used as a "
 				"source of alpha particles. Discovered by A. Debierne in 1899."
-				)
+				),
 		)
 
 Th = Element(
@@ -278,7 +278,7 @@ Th = Element(
 				"half-life of 1.39x10^10 years. Can be used as a nuclear fuel for "
 				"breeder reactors. Thorium-232 captures slow Neutrons and breeds "
 				"uranium-233. Discovered by Jons J. Berzelius in 1829."
-				)
+				),
 		)
 
 Pa = Element(
@@ -337,7 +337,7 @@ Pa = Element(
 				"stable isotope, Pa-231 has a half-life of 2.43*10^4 years. At least "
 				"10 other radioactive isotopes are known. No practical applications "
 				"are known. Discovered in 1917 by Lise Meitner and Otto Hahn."
-				)
+				),
 		)
 U = Element(
 		92,
@@ -392,7 +392,7 @@ U = Element(
 				"Three natural isotopes, U-238, U-235 and U-234. Uranium-235 is used "
 				"as the fuel for nuclear reactors and weapons. Discovered by Martin "
 				"H. Klaproth in 1789."
-				)
+				),
 		)
 
 Np = Element(
@@ -444,7 +444,7 @@ Np = Element(
 				"known isotopes have mass numbers 229 through 236, and 238 through "
 				"241. Np-236 has a half-life of 5*10^3 years. First produced by "
 				"Edwin M. McMillan and P.H. Abelson in 1940."
-				)
+				),
 		)
 
 Pu = Element(
@@ -498,7 +498,7 @@ Pu = Element(
 				"production is monitored down to the gram to prevent military "
 				"misuse. First produced by Gleen T. Seaborg, Edwin M. McMillan, J.W. "
 				"Kennedy and A.C. Wahl in 1940."
-				)
+				),
 		)
 
 Am = Element(
@@ -548,7 +548,7 @@ Am = Element(
 				"with a half-life of 7.95*10^3 years. Discovered by Glenn T. Seaborg "
 				"and associates in 1945, it was obtained by bombarding Uranium-238 "
 				"with alpha particles."
-				)
+				),
 		)
 
 Cm = Element(
@@ -599,7 +599,7 @@ Cm = Element(
 				"years. First identified by Glenn T. Seaborg and associates in 1944, "
 				"first produced by L.B. Werner and I. Perlman in 1947 by bombarding "
 				"americium-241 with Neutrons. Named for Marie Curie."
-				)
+				),
 		)
 
 Bk = Element(
@@ -650,7 +650,7 @@ Bk = Element(
 				"half-life of 1.4*10^3 years. First produced by Glenn T. Seaborg and "
 				"associates in 1949 by bombarding americium-241 with alpha "
 				"particles."
-				)
+				),
 		)
 
 Cf = Element(
@@ -702,7 +702,7 @@ Cf = Element(
 				"intense Neutron source and gives it a use in Neutron activation "
 				"analysis and a possible use as a radiation source in medicine. "
 				"First produced by Glenn T. Seaborg and associates in 1950."
-				)
+				),
 		)
 
 Es = Element(
@@ -755,7 +755,7 @@ Es = Element(
 				"explosion. In 1961 the first microgram quantities of Es-232 were "
 				"separated. While einsteinium never exists naturally, if a "
 				"sufficient amount was assembled, it would pose a radiation hazard."
-				)
+				),
 		)
 
 Fm = Element(
@@ -805,7 +805,7 @@ Fm = Element(
 				"half-life of 10 days. First identified by Albert Ghiorso and "
 				"associates in the debris of the first hydrogen-bomb explosion in "
 				"1952."
-				)
+				),
 		)
 
 Md = Element(
@@ -854,7 +854,7 @@ Md = Element(
 				"First identified by Glenn T. Seaborg, Albert Ghiorso and associates "
 				"in 1955. Alternative name Unnilunium has been proposed. Named after "
 				"the 'inventor' of the periodic table, Dmitri Mendeleev."
-				)
+				),
 		)
 
 No = Element(
@@ -902,7 +902,7 @@ No = Element(
 				"with a half-life of 255 seconds. First identified with certainty by "
 				"Albert Ghiorso and Glenn T. Seaborg in 1966. Unnilbium has been "
 				"proposed as an alternative name."
-				)
+				),
 		)
 
 Lr = Element(
@@ -954,5 +954,5 @@ Lr = Element(
 				"IUPAC nomenclature, the origin of the name comes from Ernest O. "
 				"Lawrence, the inventor of the cyclotron. If sufficient amounts of "
 				"lawrencium were produced, it would pose a radiation hazard."
-				)
+				),
 		)

@@ -242,7 +242,10 @@ def test_most_probable_isotopic_composition():
 
 	C6Br6 = Formula.from_string("C6Br6")
 	assert C6Br6.most_probable_isotopic_composition()[0] == Formula({
-			"C[12]": 6, "C[13]": 0, "Br[79]": 3, "Br[81]": 3
+			"C[12]": 6,
+			"C[13]": 0,
+			"Br[79]": 3,
+			"Br[81]": 3,
 			})
 	assert rounders(C6Br6.most_probable_isotopic_composition()[1], "0.000") == decimal.Decimal("0.293")
 

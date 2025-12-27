@@ -154,7 +154,7 @@ Li = Element(
 		description=(
 				"Socket silvery metal. First member of group 1 of the periodic "
 				"table. Lithium salts are used in psychomedicine."
-				)
+				),
 		)
 
 Na = Element(
@@ -216,7 +216,7 @@ Na = Element(
 				"table (alkali metals). It is highly reactive, oxidizing in air and "
 				"reacting violently with water, forcing it to be kept under oil. It "
 				"was first isolated by Humphrey Davy in 1807."
-				)
+				),
 		)
 
 K = Element(
@@ -290,7 +290,7 @@ K = Element(
 				"table (alkali metals). Occurs naturally in seawater and a many "
 				"minerals. Highly reactive, chemically, it resembles sodium in its "
 				"behavior and compounds. Discovered by Sir Humphry Davy in 1807."
-				)
+				),
 		)
 
 Rb = Element(
@@ -364,7 +364,7 @@ Rb = Element(
 				"is highly reactive, with properties similar to other elements in "
 				"group 1, like igniting spontaneously in air. Discovered "
 				"spectroscopically in 1861 by W. Bunsen and G.R. Kirchoff."
-				)
+				),
 		)
 
 Cs = Element(
@@ -445,7 +445,7 @@ Cs = Element(
 				"spectrum. The name comes from the latin word caesius, which means "
 				"sky blue. Caesium should be considered highly toxic. Some of the "
 				"radioisotopes are even more toxic."
-				)
+				),
 		)
 
 Fr = Element(
@@ -509,5 +509,5 @@ Fr = Element(
 				"Found in uranium and thorium ores. The 22 known isotopes are all "
 				"radioactive, with the most stable being Fr-223. Its existence was "
 				"confirmed in 1939 by Marguerite Perey."
-				)
+				),
 		)

@@ -49,7 +49,7 @@ Functions for handling SI units.
 #
 
 # stdlib
-from typing import Tuple, Union
+from typing import Optional, Sequence, Tuple, Union
 
 # 3rd party
 import numpy
@@ -91,6 +91,8 @@ def as_latex(quant: quantities.quantity.Quantity) -> str:
 
 		>>> print(as_latex(1/quantities.kelvin))
 		\mathrm{\frac{1}{K}}
+
+	:param quant:
 	"""
 
 	# see https://github.com/python-quantities/python-quantities/issues/148
@@ -143,7 +145,12 @@ def compare_equality(
 		return a == b
 
 
-def allclose(a, b, rtol=1e-8, atol=None) -> bool:
+def allclose(
+		a: Union[float, Sequence[float]],
+		b: Union[float, Sequence[float]],
+		rtol: float = 1e-8,
+		atol: Optional[float] = None,
+		) -> bool:
 	"""
 	Analogous to :py:func:`numpy.allclose`.
 
@@ -154,16 +161,16 @@ def allclose(a, b, rtol=1e-8, atol=None) -> bool:
 	"""
 
 	try:
-		d = abs(a - b)
+		d = abs(a - b)  # type: ignore[operator]
 	except Exception:
 		try:
-			if len(a) == len(b):
-				return all(allclose(_a, _b, rtol, atol) for _a, _b in zip(a, b))
+			if len(a) == len(b):  # type: ignore[arg-type]
+				return all(allclose(_a, _b, rtol, atol) for _a, _b in zip(a, b))  # type: ignore[arg-type]
 			else:
 				return False
 		except Exception:
 			return False
-	lim = abs(a) * rtol
+	lim = abs(a) * rtol  # type: ignore[arg-type]
 	if atol is not None:
 		lim += atol
 
@@ -173,11 +180,11 @@ def allclose(a, b, rtol=1e-8, atol=None) -> bool:
 		return d <= lim
 	else:
 		try:
-			len(lim)
+			len(lim)  # type: ignore[arg-type]
 		except TypeError:
 			return numpy.all([_d <= lim for _d in d])  # type: ignore[return-value]
 		else:
-			return numpy.all([_d <= _lim for _d, _lim in zip(d, lim)])  # type: ignore[return-value]
+			return numpy.all([_d <= _lim for _d, _lim in zip(d, lim)])  # type: ignore[return-value,call-overload]
 
 
 # TODO: decide whether to deprecate in favor of "number_to_scientific_latex"?
@@ -214,7 +221,9 @@ def format_string(
 # Additional units to complement quantities
 #: Per 100 electronVolts.
 per100eV = quantities.UnitQuantity(
-		"per_100_eV", 1 / (100 * quantities.eV * quantities.constants.Avogadro_constant), u_symbol="(100eV)**-1"
+		"per_100_eV",
+		1 / (100 * quantities.eV * quantities.constants.Avogadro_constant),
+		u_symbol="(100eV)**-1",
 		)
 
 #: Decimetre
@@ -260,7 +269,7 @@ SI_base_registry = {
 		"current": quantities.ampere,
 		"temperature": quantities.kelvin,
 		"luminous_intensity": quantities.candela,
-		"amount": quantities.mole
+		"amount": quantities.mole,
 		}
 """
 Mapping of SI measurements to their units.

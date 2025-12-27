@@ -129,6 +129,10 @@ class Atom:
 	def set_coordinates(self, x: float, y: float, z: Optional[float] = None) -> None:
 		"""
 		Set all coordinate dimensions at once.
+
+		:param x:
+		:param y:
+		:param z:
 		"""
 
 		self.x = x
