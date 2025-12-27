@@ -202,7 +202,7 @@ def _get_formula_parser() -> pyparsing.Forward:
 
 	# add parse action to convert integers to ints, to support doing addition
 	# and multiplication at parse time
-	integer.setParseAction(lambda t: int(t[0]))
+	integer.set_parse_action(lambda t: int(t[0]))
 
 	element = pyparsing.Regex('|'.join(isotopes_re + element_re) + '$')
 
@@ -230,7 +230,7 @@ def _get_formula_parser() -> pyparsing.Forward:
 				term[1] *= mult
 			return t.subgroup
 
-	term.setParseAction(multiplyContents)
+	term.set_parse_action(multiplyContents)
 
 	# add parse action to sum up multiple references to the same element
 	def sum_by_element(tokens) -> Optional[pyparsing.ParseResults]:  # noqa: MAN001
@@ -250,7 +250,7 @@ def _get_formula_parser() -> pyparsing.Forward:
 
 	# define contents of a formula as one or more terms
 	formula << OneOrMore(term)  # pylint: disable=expression-not-assigned
-	formula.setParseAction(sum_by_element)
+	formula.set_parse_action(sum_by_element)
 	return formula
 
 
