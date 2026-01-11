@@ -272,7 +272,7 @@ class SpectrumSimilarity:
 	def _build_dataframe(self, spectrum: numpy.ndarray) -> Tuple[pandas.DataFrame, pandas.DataFrame]:
 		# format spectra and normalize intensitites
 		tmp = pandas.DataFrame(data=spectrum, columns=["mz", "intensity"])
-		tmp["normalized"] = tmp.apply(normalize, args=(max(tmp["intensity"]), ), axis=1)
+		tmp["normalized"] = tmp.apply(normalize, args=(max(tmp["intensity"])), axis=1)
 		tmp = tmp[tmp["mz"].between(self.xlim[0], self.xlim[1])]
 		plot = tmp[["mz", "normalized"]].copy()  # data frame for plotting spectrum
 		plot.columns = ["mz", "intensity"]
@@ -318,14 +318,14 @@ def spectrum_similarity(
 
 	# format spectra and normalize intensitites
 	top_tmp = pandas.DataFrame(data=spec_top, columns=["mz", "intensity"])
-	top_tmp["normalized"] = top_tmp.apply(normalize, args=(max(top_tmp["intensity"]), ), axis=1)
+	top_tmp["normalized"] = top_tmp.apply(normalize, args=(max(top_tmp["intensity"])), axis=1)
 	top_tmp = top_tmp[top_tmp["mz"].between(xlim[0], xlim[1])]
 	top_plot = top_tmp[["mz", "normalized"]].copy()  # data frame for plotting spectrum
 	top_plot.columns = ["mz", "intensity"]
 	top = top_plot[top_plot["intensity"] >= b]  # data frame for similarity score calculation
 
 	bottom_tmp = pandas.DataFrame(data=spec_bottom, columns=["mz", "intensity"])
-	bottom_tmp["normalized"] = bottom_tmp.apply(normalize, args=(max(bottom_tmp["intensity"]), ), axis=1)
+	bottom_tmp["normalized"] = bottom_tmp.apply(normalize, args=(max(bottom_tmp["intensity"])), axis=1)
 	bottom_tmp = bottom_tmp[bottom_tmp["mz"].between(xlim[0], xlim[1])]
 	bottom_plot = bottom_tmp[["mz", "normalized"]].copy()  # data frame for plotting spectrum
 	bottom_plot.columns = ["mz", "intensity"]
