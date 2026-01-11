@@ -91,7 +91,7 @@ from chemistry_tools.elements import ELEMENTS, H, Isotope, groups
 				(209, "Bi"),
 				(232, "Th"),
 				(238, 'U'),
-				]
+				],
 		)
 def test_isotopes(symbol: str, massnumber: int):
 	element = ELEMENTS[symbol]

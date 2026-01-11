@@ -360,7 +360,7 @@ def mass_from_composition(composition: Mapping[Union[str, int], int], charge: in
 		if charge != composition[0]:
 			raise ValueError(
 					"'charge' can only be specified once, "
-					"either as a keyword argument or as the '0' key of 'composition'"
+					"either as a keyword argument or as the '0' key of 'composition'",
 					)
 
 	mass = 0.0

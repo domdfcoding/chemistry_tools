@@ -139,7 +139,7 @@ def test_spectrum_similarity():
 					9999,
 					1210,
 					85,
-					]
+					],
 			)
 
 	ethyl_centralite = create_array(
@@ -378,7 +378,7 @@ def test_spectrum_similarity():
 					2940,
 					590,
 					60,
-					]
+					],
 			)
 
 	assert spectrum_similarity(diphenylamine, diphenylamine, print_graphic=False)[0] > 0.99
@@ -522,7 +522,7 @@ def test_SpectrumSimilarity_class():
 					9999,
 					1210,
 					85,
-					]
+					],
 			)
 
 	ethyl_centralite = create_array(
@@ -761,7 +761,7 @@ def test_SpectrumSimilarity_class():
 					2940,
 					590,
 					60,
-					]
+					],
 			)
 
 	dpa_similarity = SpectrumSimilarity(diphenylamine, diphenylamine)
@@ -834,7 +834,7 @@ def test_SpectrumSimilarity_no_overlap():
 					2.208517,
 					1.070046,
 					2.117789,
-					]
+					],
 			)
 
 	bottom_spec = create_array(
@@ -871,7 +871,7 @@ def test_SpectrumSimilarity_no_overlap():
 					52.652653,
 					3.803804,
 					0.00001,
-					]
+					],
 			)
 
 	similarity = SpectrumSimilarity(top_spec, bottom_spec)

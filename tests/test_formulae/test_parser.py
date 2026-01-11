@@ -115,7 +115,7 @@ def test_formula_to_composition():
 				("epsilon-Zn(OH)2(s)", r"\varepsilon-Zn(OH)_{2}(s)"),
 				("Na2CO3.7H2O(s)", r"Na_{2}CO_{3}\cdot 7H_{2}O(s)"),
 				("Na2CO3.1H2O(s)", r"Na_{2}CO_{3}\cdot H_{2}O(s)"),
-				]
+				],
 		)
 def test_formula_to_latex(string: str, expected: str):
 	assert string_to_latex(string) == expected
@@ -143,7 +143,7 @@ def test_formula_to_latex(string: str, expected: str):
 				("epsilon-Zn(OH)2(s)", "ε-Zn(OH)₂(s)"),
 				("Na2CO3.7H2O(s)", "Na₂CO₃·7H₂O(s)"),
 				("Na2CO3.1H2O(s)", "Na₂CO₃·H₂O(s)"),
-				]
+				],
 		)
 def test_formula_to_unicode(string: str, expected: str):
 	assert string_to_unicode(string) == expected
@@ -170,7 +170,7 @@ def test_formula_to_unicode(string: str, expected: str):
 				("epsilon-Zn(OH)2(s)", r"&epsilon;-Zn(OH)<sub>2</sub>(s)"),
 				("Na2CO3.7H2O(s)", "Na<sub>2</sub>CO<sub>3</sub>&sdot;7H<sub>2</sub>O(s)"),
 				("Na2CO3.1H2O(s)", "Na<sub>2</sub>CO<sub>3</sub>&sdot;H<sub>2</sub>O(s)"),
-				]
+				],
 		)
 def test_formula_to_html(string: str, expected: str):
 	assert string_to_html(string) == expected

@@ -165,7 +165,7 @@ class Formula(defaultdict, Counter):
 							# No point raising error if the charges are the same
 							raise ValueError(
 									"Charge is specified in both the composition and with the "
-									f"'charge' keyword argument. {charge}, {self.charge}"
+									f"'charge' keyword argument. {charge}, {self.charge}",
 									)
 
 					charge = composition.charge
@@ -179,7 +179,7 @@ class Formula(defaultdict, Counter):
 				# No point raising error if the charges are the same
 				raise ValueError(
 						"Charge is specified in both the formula and with the "
-						f"'charge' keyword argument. {charge}, {self.charge}"
+						f"'charge' keyword argument. {charge}, {self.charge}",
 						)
 		elif charge:
 			self.charge = charge
@@ -507,7 +507,7 @@ class Formula(defaultdict, Counter):
 				first_iso, second_iso = sorted(
 					[(i[0], i[1][1]) for i in isotope_data[element_name].items() if i[0]],
 					key=lambda x: -x[1],
-					)[:2]
+				)[:2]
 
 				# Write the number of isotopes of the most abundant type.
 				first_iso_str = _make_isotope_string(element_name, first_iso[0])
@@ -545,7 +545,7 @@ class Formula(defaultdict, Counter):
 					):
 				raise ValueError(
 						"Please specify the isotopic states of all atoms of "
-						f"{element_name} or do not specify them at all."
+						f"{element_name} or do not specify them at all.",
 						)
 			else:
 				isotopic_composition[element_name][isotope_num] = (self[element])

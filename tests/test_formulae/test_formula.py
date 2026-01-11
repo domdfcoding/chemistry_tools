@@ -249,13 +249,12 @@ def test_most_probable_isotopic_composition():
 			})
 	assert rounders(C6Br6.most_probable_isotopic_composition()[1], "0.000") == decimal.Decimal("0.293")
 
-	assert (Formula.from_string("F10").most_probable_isotopic_composition() == (Formula({
-			"F[19]": 10,
-			}), 1.0))
+	expected = (Formula({"F[19]": 10}), 1.0)
+	assert Formula.from_string("F10").most_probable_isotopic_composition() == expected
 
-	assert Formula.from_string("CF4").most_probable_isotopic_composition(
-		elements_with_isotopes=['F'],
-		) == (Formula({'C': 1, "F[19]": 4}), 1.0)  # yapf: disable
+	cf4_formula = Formula.from_string("CF4")
+	expected = (Formula({'C': 1, "F[19]": 4}), 1.0)
+	assert cf4_formula.most_probable_isotopic_composition(elements_with_isotopes=['F']) == expected
 
 
 def test_isotope_data():
@@ -279,7 +278,9 @@ def test_iter_isotopologues():
 def test_iter_isotopologues_with_abundances():
 
 	for state, abundance in Formula.from_string("BCHFKO").iter_isotopologues(
-		elements_with_isotopes='F', report_abundance=True):
+		elements_with_isotopes='F',
+		report_abundance=True,
+	):
 		assert state
 		assert abundance
 
@@ -377,7 +378,7 @@ def test_properties():
 				("BF3H3N", "84.83674", "85.03106"),
 				("CuH10O9S", "249.68485", "248.93415"),
 				("CuSO4.5H2O", "249.68485", "248.93415"),
-				]
+				],
 		)
 def test_masses(formula: str, mass: str, exact_mass: str):
 	f = Formula.from_string(formula)
@@ -401,7 +402,7 @@ def test_masses(formula: str, mass: str, exact_mass: str):
 				("C5(PhBu(EtCHBr)2)3", "C53H78Br6"),
 				("PhNH2.HCl", "C6H8ClN"),
 				("NH3.BF3", "BF3H3N"),
-				]
+				],
 		)
 def test_equivalent(formula_1: str, formula_2: str):
 	f1 = Formula.from_string(formula_1)
@@ -418,7 +419,7 @@ def test_equivalent(formula_1: str, formula_2: str):
 				("H2O", "H2O"),
 				("S4", 'S'),
 				("C6H12O6", "CH2O"),
-				]
+				],
 		)
 def test_empirical_formula(formula_1: str, formula_2: str):
 	f1 = Formula.from_string(formula_1)
@@ -445,7 +446,7 @@ def test_empirical_formula(formula_1: str, formula_2: str):
 				"Hey",
 				"O2Hey",
 				"HeyO2",
-				]
+				],
 		)
 def test_invalid_formulae(formula: str):
 	pattern = f"Unrecognised formula: {re.escape(formula.replace(' ', ''))}"
@@ -471,7 +472,7 @@ def test_invalid_formulae_unknown_element(formula: str):
 				# TODO: ("AgCuRu4(H)2[CO]12{PPh3}2", {}),
 				# TODO: ("CGCGAATTCGCG", {}),
 				# TODO: ("MDRGEQGLLK", {}),
-				]
+				],
 		)
 def test_parsing(formula: str, data: Dict[str, int]):
 	assert Formula.from_string(formula) == data

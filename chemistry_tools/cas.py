@@ -110,9 +110,7 @@ def cas_string_to_int(cas_no: Union[str, int]) -> int:
 	check_value = check_cas_number(int(cas_no))
 
 	if check_value:
-		raise ValueError(
-				f"Invalid CAS Number. Check digit mismatch: expected {check_digit}, "
-				f"computed {check_value + check_digit}."
-				)
+		msg = f"Invalid CAS Number. Check digit mismatch: expected {check_digit}, computed {check_value + check_digit}."
+		raise ValueError(msg)
 
 	return cas_no

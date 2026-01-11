@@ -74,7 +74,7 @@ def parse_full_record(record: Dict) -> List[Dict]:
 						properties=properties,
 						cid=cid,
 						counts=counts,
-						)
+						),
 				)
 
 	return parsed_records

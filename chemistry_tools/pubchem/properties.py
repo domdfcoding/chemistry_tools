@@ -391,7 +391,7 @@ def force_valid_properties(properties: Union[str, Iterable[str]]) -> List[str]:
 		raise ValueError(f"Unknown properties '{', '.join(properties)}'")
 
 	if not ordered_properties:
-		raise ValueError(f"Please supply one or more properties")
+		raise ValueError("Please supply one or more properties")
 
 	return ordered_properties
 
@@ -542,7 +542,7 @@ class PubChemProperty(__BasePubChemProperty):
 		value: Any = None,
 		dtype: Optional[Callable] = None,
 		source: Optional[Dict] = None,
-		):
+	):
 		if source is None:
 			source = {}
 
