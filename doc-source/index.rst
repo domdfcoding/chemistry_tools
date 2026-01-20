@@ -130,6 +130,7 @@ Installation
 
 .. installation:: chemistry_tools
 	:pypi:
+	:pypi-name: chemistry-tools
 	:github:
 	:anaconda:
 	:conda-channels: conda-forge, domdfcoding
