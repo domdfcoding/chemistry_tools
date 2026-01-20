@@ -129,7 +129,7 @@ To install with ``pip``:
 
 .. code-block:: bash
 
-	$ python -m pip install chemistry_tools
+	$ python -m pip install chemistry-tools
 
 To install with ``conda``:
 
