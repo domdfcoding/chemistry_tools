@@ -231,7 +231,7 @@ jobs:
           $CONDA/bin/conda install anaconda-client
           $CONDA/bin/conda info -a
 
-          for f in conda/dist/noarch/chemistry_tools-*.tar.bz2; do
+          for f in conda/dist/noarch/chemistry-tools-*.tar.bz2; do
             [ -e "$f" ] || continue
             echo "$f"
             conda install "$f" || exit 1

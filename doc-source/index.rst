@@ -70,22 +70,22 @@ Chemistry Tools
 		:alt: CodeFactor Grade
 
 	.. |pypi-version| pypi-shield::
-		:project: chemistry_tools
+		:project: chemistry-tools
 		:version:
 		:alt: PyPI - Package Version
 
 	.. |supported-versions| pypi-shield::
-		:project: chemistry_tools
+		:project: chemistry-tools
 		:py-versions:
 		:alt: PyPI - Supported Python Versions
 
 	.. |supported-implementations| pypi-shield::
-		:project: chemistry_tools
+		:project: chemistry-tools
 		:implementations:
 		:alt: PyPI - Supported Implementations
 
 	.. |wheel| pypi-shield::
-		:project: chemistry_tools
+		:project: chemistry-tools
 		:wheel:
 		:alt: PyPI - Wheel
 
@@ -117,7 +117,7 @@ Chemistry Tools
 		:alt: Maintenance
 
 	.. |pypi-downloads| pypi-shield::
-		:project: chemistry_tools
+		:project: chemistry-tools
 		:downloads: month
 		:alt: PyPI - Downloads
 
