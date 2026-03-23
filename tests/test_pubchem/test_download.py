@@ -19,7 +19,7 @@ from chemistry_tools.pubchem.properties import rest_get_properties
 
 
 def test_image_download(tmp_pathplus: PathPlus):
-	img = get_structure_image("Asprin")
+	img = get_structure_image("Aspirin")
 	img.save(tmp_pathplus / "aspirin.png")
 
 
