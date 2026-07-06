@@ -114,7 +114,6 @@ class Compound(Dictable):
 				'water': lambda T: 2.1*m**2/s/K*(T - 273.15*K),
 			}
 		}
-
 	"""
 
 	# 	formula:
