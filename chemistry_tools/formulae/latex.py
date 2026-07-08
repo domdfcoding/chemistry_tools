@@ -101,15 +101,15 @@ def string_to_latex(
 
 	.. code-block:: python
 
-		>>> string_to_latex('NH4+')
+		>>> string_to_latex("NH4+")
 		'NH_{4}^{+}'
-		>>> string_to_latex('Fe(CN)6+2')
+		>>> string_to_latex("Fe(CN)6+2")
 		'Fe(CN)_{6}^{2+}'
-		>>> string_to_latex('Fe(CN)6+2(aq)')
+		>>> string_to_latex("Fe(CN)6+2(aq)")
 		'Fe(CN)_{6}^{2+}(aq)'
-		>>> string_to_latex('.NHO-(aq)')
+		>>> string_to_latex(".NHO-(aq)")
 		'^\bullet NHO^{-}(aq)'
-		>>> string_to_latex('alpha-FeOOH(s)')
+		>>> string_to_latex("alpha-FeOOH(s)")
 		'\alpha-FeOOH(s)'
 
 	:param formula: Chemical formula, e.g. ``'H2O'``, ``'Fe+3'``, ``'Cl-'``.

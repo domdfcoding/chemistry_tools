@@ -204,7 +204,7 @@ class Compound(Dictable):
 
 		.. code-block:: python
 
-			>>> nh4p = Compound('NH4+')
+			>>> nh4p = Compound("NH4+")
 			>>> import quantities
 			>>> nh4p.molar_mass(quantities)
 			array(18.0384511...) * g/mol

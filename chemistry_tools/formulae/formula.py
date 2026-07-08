@@ -284,7 +284,7 @@ class Formula(defaultdict, Counter):
 			'O[2H]2'
 			>>> Formula.from_mass_fractions({'H': 8.97, 'C': 59.39, 'O': 31.64})
 			'C5H9O2'
-			>>> Formula.from_mass_fractions({'O': 0.26, '30Si': 0.74})
+			>>> Formula.from_mass_fractions({'O': 0.26, "30Si": 0.74})
 			'O2[30Si]3'
 		"""  # noqa: D400
 
@@ -728,11 +728,11 @@ class Formula(defaultdict, Counter):
 
 		.. code-block:: python
 
-			>>> Formula.from_string('BrC2H5').hill_formula
+			>>> Formula.from_string("BrC2H5").hill_formula
 			'C2H5Br'
-			>>> Formula.from_string('HBr').hill_formula
+			>>> Formula.from_string("HBr").hill_formula
 			'BrH'
-			>>> Formula.from_string('[(CH3)3Si2]2NNa').hill_formula
+			>>> Formula.from_string("[(CH3)3Si2]2NNa").hill_formula
 			'C6H18NNaSi4'
 		"""
 
@@ -777,11 +777,11 @@ class Formula(defaultdict, Counter):
 
 		.. code-block:: python
 
-			>>> Formula.from_string('BrC2H5').no_isotope_hill_formula
+			>>> Formula.from_string("BrC2H5").no_isotope_hill_formula
 			'C2H5Br'
-			>>> Formula.from_string('HBr').no_isotope_hill_formula
+			>>> Formula.from_string("HBr").no_isotope_hill_formula
 			'BrH'
-			>>> Formula.from_string('[(CH3)3Si2]2NNa').no_isotope_hill_formula
+			>>> Formula.from_string("[(CH3)3Si2]2NNa").no_isotope_hill_formula
 			'C6H18NNaSi4'
 		"""
 
@@ -816,11 +816,11 @@ class Formula(defaultdict, Counter):
 
 		.. code-block:: python
 
-			>>> Formula.from_string('H2O').empirical_formula
+			>>> Formula.from_string("H2O").empirical_formula
 			'H2O'
-			>>> Formula.from_string('S4').empirical_formula
+			>>> Formula.from_string("S4").empirical_formula
 			'S'
-			>>> Formula.from_string('C6H12O6').empirical_formula
+			>>> Formula.from_string("C6H12O6").empirical_formula
 			'CH2O'
 		"""
 
@@ -848,7 +848,7 @@ class Formula(defaultdict, Counter):
 
 		.. code-block:: python
 
-			>>> Formula.from_string('CH3COOH').n_atoms
+			>>> Formula.from_string("CH3COOH").n_atoms
 			8
 		"""
 
@@ -865,7 +865,7 @@ class Formula(defaultdict, Counter):
 
 		.. code-block:: python
 
-			>>> Formula.from_string('CH3COOH').n_elements
+			>>> Formula.from_string("CH3COOH").n_elements
 			3
 
 

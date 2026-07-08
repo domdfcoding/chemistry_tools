@@ -287,7 +287,8 @@ def hill_order(symbols: Sequence[str]) -> Iterator[str]:
 
 	.. code-block:: python
 
-		>>> for i in hill_order("H", "C[12]", "O"): print(i, end='')
+		>>> for i in hill_order('H', "C[12]", 'O'):
+		... 	print(i, end='')
 		CHO
 
 	:param symbols:

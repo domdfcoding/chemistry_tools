@@ -89,7 +89,7 @@ def as_latex(quant: quantities.quantity.Quantity) -> str:
 
 	.. code-block:: python
 
-		>>> print(as_latex(1/quantities.kelvin))
+		>>> print(as_latex(1 / quantities.kelvin))
 		\mathrm{\frac{1}{K}}
 
 	:param quant:
@@ -116,9 +116,9 @@ def compare_equality(
 	.. code-block:: python
 
 		>>> km, m = quantities.kilometre, quantities.metre
-		>>> compare_equality(3*km, 3)
+		>>> compare_equality(3 * km, 3)
 		False
-		>>> compare_equality(3*km, 3000*m)
+		>>> compare_equality(3 * km, 3000 * m)
 		True
 
 	:param a:
@@ -200,9 +200,9 @@ def format_string(
 
 	.. code-block:: python
 
-		>>> print(' '.join(format_string(0.42*quantities.mol/decimetre**3)))
+		>>> print(' '.join(format_string(0.42 * quantities.mol / decimetre**3)))
 		0.42 mol/decimetre**3
-		>>> print(' '.join(format_string(2/quantities.s, tex=True)))
+		>>> print(' '.join(format_string(2 / quantities.s, tex=True)))
 		2 \mathrm{\frac{1}{s}}
 
 	:param value: Value with unit

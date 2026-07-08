@@ -278,11 +278,11 @@ def string_to_composition(
 
 	.. code-block:: python
 
-		>>> string_to_composition('NH4+') == {0: 1, "H": 4, "N": 1}
+		>>> string_to_composition("NH4+") == {0: 1, 'H': 4, 'N': 1}
 		True
-		>>> string_to_composition('.NHO-(aq)') == {0: -1, "H": 1, "N": 1, "O": 1}
+		>>> string_to_composition(".NHO-(aq)") == {0: -1, 'H': 1, 'N': 1, 'O': 1}
 		True
-		>>> string_to_composition('Na2CO3.7H2O') == {"Na": 2, "C": 1, "O": 10, "H": 14}
+		>>> string_to_composition("Na2CO3.7H2O") == {"Na": 2, 'C': 1, 'O': 10, 'H': 14}
 		True
 
 	.. latex:vspace:: -10px

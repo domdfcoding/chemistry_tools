@@ -189,19 +189,19 @@ class Species(Formula):
 
 		.. code-block:: python
 
-			>>> water = Species.from_string('H2O')
+			>>> water = Species.from_string("H2O")
 			>>> water.phase
 			None
-			>>> NaCl = Species.from_string('NaCl(s)')
+			>>> NaCl = Species.from_string("NaCl(s)")
 			>>> NaCl.phase
 			s
-			>>> Hg_l = Species.from_string('Hg(l)')
+			>>> Hg_l = Species.from_string("Hg(l)")
 			>>> Hg_l.phase
 			l
-			>>> CO2g = Species.from_string('CO2(g)')
+			>>> CO2g = Species.from_string("CO2(g)")
 			>>> CO2g.phase
 			g
-			>>> CO2aq = Species.from_string('CO2(aq)')
+			>>> CO2aq = Species.from_string("CO2(aq)")
 			>>> CO2aq.phase
 			aq
 		"""
@@ -256,11 +256,11 @@ class Species(Formula):
 
 		.. code-block:: python
 
-			>>> Species.from_string('BrC2H5').hill_formula
+			>>> Species.from_string("BrC2H5").hill_formula
 			'C2H5Br'
-			>>> Species.from_string('HBr').hill_formula
+			>>> Species.from_string("HBr").hill_formula
 			'BrH'
-			>>> Species.from_string('[(CH3)3Si2]2NNa').hill_formula
+			>>> Species.from_string("[(CH3)3Si2]2NNa").hill_formula
 			'C6H18NNaSi4'
 		"""
 
@@ -283,11 +283,11 @@ class Species(Formula):
 
 		.. code-block:: python
 
-			>>> Formula.from_string('H2O').empirical_formula
+			>>> Formula.from_string("H2O").empirical_formula
 			'H2O'
-			>>> Formula.from_string('S4').empirical_formula
+			>>> Formula.from_string("S4").empirical_formula
 			'S'
-			>>> Formula.from_string('C6H12O6').empirical_formula
+			>>> Formula.from_string("C6H12O6").empirical_formula
 			'CH2O'
 		"""
 
