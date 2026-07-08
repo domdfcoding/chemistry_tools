@@ -107,7 +107,7 @@ class Compound(Dictable):
 	``data`` could be simple such as ``{'mp': 0, 'bp': 100}`` or considerably more involved,
 	e.g.:
 
-	.. code-block:: python
+	.. code-block:: python3
 
 		{
 			'diffusion_coefficient': {
